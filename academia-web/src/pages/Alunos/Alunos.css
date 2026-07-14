@@ -1,0 +1,112 @@
+.alunos-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.alunos-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.alunos-actions h2 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+
+.alunos-actions p {
+  margin: 0;
+  color: #8e9aaa;
+}
+
+.alunos-actions > button {
+  padding: 11px 18px;
+
+  color: #ffffff;
+  background: #14945a;
+
+  border: none;
+  border-radius: 9px;
+
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.alunos-actions > button:hover {
+  background: #117c4c;
+}
+
+.alunos-table-container {
+  overflow-x: auto;
+
+  background: #101822;
+  border: 1px solid #202d3b;
+  border-radius: 12px;
+}
+
+.alunos-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.alunos-table th,
+.alunos-table td {
+  padding: 15px 18px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.alunos-table th {
+  color: #8e9aaa;
+  background: #0d151f;
+
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.alunos-table td {
+  color: #d8e0ea;
+  border-top: 1px solid #202d3b;
+}
+
+.alunos-table tbody tr:hover {
+  background: #141e2a;
+}
+
+.alunos-row-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.alunos-row-actions button {
+  padding: 7px 10px;
+
+  color: #d8e0ea;
+  background: #1a2633;
+
+  border: 1px solid #2c3947;
+  border-radius: 7px;
+
+  cursor: pointer;
+}
+
+.alunos-row-actions button:hover {
+  background: #233140;
+}
+
+.alunos-row-actions .danger {
+  color: #ff8585;
+}
+
+.alunos-empty {
+  padding: 40px !important;
+  color: #8e9aaa !important;
+  text-align: center !important;
+}
+
+.alunos-erro {
+  color: #ff7777;
+}

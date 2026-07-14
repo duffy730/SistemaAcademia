@@ -1,0 +1,204 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Repository\\wadadawdwad\\ApiAcademia\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A27A31AC-3557-9200-AD34-BF242A08C9BA}|ApiAcademia.Business\\ApiAcademia.Business.csproj|e:\\repository\\wadadawdwad\\apiacademia\\apiacademia.business\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A27A31AC-3557-9200-AD34-BF242A08C9BA}|ApiAcademia.Business\\ApiAcademia.Business.csproj|solutionrelative:apiacademia.business\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94E16A93-7763-66E4-615B-ED8EAB0667D1}|ApiAcademia\\ApiAcademia.csproj|e:\\repository\\wadadawdwad\\apiacademia\\apiacademia\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94E16A93-7763-66E4-615B-ED8EAB0667D1}|ApiAcademia\\ApiAcademia.csproj|solutionrelative:apiacademia\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Repository\\wadadawdwad\\academia-web\\src\\services\\api.js||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94E16A93-7763-66E4-615B-ED8EAB0667D1}|ApiAcademia\\ApiAcademia.csproj|e:\\repository\\wadadawdwad\\apiacademia\\apiacademia\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{94E16A93-7763-66E4-615B-ED8EAB0667D1}|ApiAcademia\\ApiAcademia.csproj|solutionrelative:apiacademia\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94E16A93-7763-66E4-615B-ED8EAB0667D1}|ApiAcademia\\ApiAcademia.csproj|e:\\repository\\wadadawdwad\\apiacademia\\apiacademia\\apiacademia.http||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{94E16A93-7763-66E4-615B-ED8EAB0667D1}|ApiAcademia\\ApiAcademia.csproj|solutionrelative:apiacademia\\apiacademia.http||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94E16A93-7763-66E4-615B-ED8EAB0667D1}|ApiAcademia\\ApiAcademia.csproj|e:\\repository\\wadadawdwad\\apiacademia\\apiacademia\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94E16A93-7763-66E4-615B-ED8EAB0667D1}|ApiAcademia\\ApiAcademia.csproj|solutionrelative:apiacademia\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Repository\\SistemaAcademia\\academia-web\\src\\services\\api.js||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|e:\\repository\\wadadawdwad\\apiacademia\\apiaacademia.repository\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|solutionrelative:apiaacademia.repository\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|e:\\repository\\wadadawdwad\\apiacademia\\apiaacademia.repository\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|solutionrelative:apiaacademia.repository\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|e:\\repository\\wadadawdwad\\apiacademia\\apiaacademia.repository\\migrations\\20260712014337_token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|solutionrelative:apiaacademia.repository\\migrations\\20260712014337_token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94E16A93-7763-66E4-615B-ED8EAB0667D1}|ApiAcademia\\ApiAcademia.csproj|e:\\repository\\wadadawdwad\\apiacademia\\apiacademia\\apiacademia.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{94E16A93-7763-66E4-615B-ED8EAB0667D1}|ApiAcademia\\ApiAcademia.csproj|solutionrelative:apiacademia\\apiacademia.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApiAcademia.http",
+              "DocumentMoniker": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\ApiAcademia.http",
+              "RelativeDocumentMoniker": "ApiAcademia\\ApiAcademia.http",
+              "ToolTip": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\ApiAcademia.http",
+              "RelativeToolTip": "ApiAcademia\\ApiAcademia.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-07-14T17:36:31.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "ApiAcademia\\Controllers\\UserController.cs",
+              "ToolTip": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\Controllers\\UserController.cs",
+              "RelativeToolTip": "ApiAcademia\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T22:13:41.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AppDbContextModelSnapshot.cs",
+              "DocumentMoniker": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ToolTip": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeToolTip": "ApiaAcademia.Repository\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAgwL0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T22:11:57.871Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiaAcademia.Repository\\Repository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Repository\\UserRepository.cs",
+              "ToolTip": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiaAcademia.Repository\\Repository\\UserRepository.cs",
+              "RelativeToolTip": "ApiaAcademia.Repository\\Repository\\UserRepository.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowCkAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T22:11:10.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia.Business\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "ApiAcademia.Business\\Services\\UserService.cs",
+              "ToolTip": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia.Business\\Services\\UserService.cs",
+              "RelativeToolTip": "ApiAcademia.Business\\Services\\UserService.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAADwvzwAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T22:10:01.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\Program.cs",
+              "RelativeDocumentMoniker": "ApiAcademia\\Program.cs",
+              "ToolTip": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\Program.cs",
+              "RelativeToolTip": "ApiAcademia\\Program.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAADwv3EAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T13:56:35.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "api.js",
+              "DocumentMoniker": "E:\\Repository\\wadadawdwad\\academia-web\\src\\services\\api.js",
+              "RelativeDocumentMoniker": "..\\academia-web\\src\\services\\api.js",
+              "ToolTip": "E:\\Repository\\wadadawdwad\\academia-web\\src\\services\\api.js",
+              "RelativeToolTip": "..\\academia-web\\src\\services\\api.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-07-14T17:38:15.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "ApiAcademia\\Properties\\launchSettings.json",
+              "ToolTip": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\Properties\\launchSettings.json",
+              "RelativeToolTip": "ApiAcademia\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwBoAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-07-14T17:36:40.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "api.js",
+              "DocumentMoniker": "E:\\Repository\\SistemaAcademia\\academia-web\\src\\services\\api.js",
+              "RelativeDocumentMoniker": "..\\..\\SistemaAcademia\\academia-web\\src\\services\\api.js",
+              "ToolTip": "E:\\Repository\\SistemaAcademia\\academia-web\\src\\services\\api.js",
+              "RelativeToolTip": "..\\..\\SistemaAcademia\\academia-web\\src\\services\\api.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-07-13T13:55:11.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20260712014337_token.cs",
+              "DocumentMoniker": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260712014337_token.cs",
+              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Migrations\\20260712014337_token.cs",
+              "ToolTip": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260712014337_token.cs",
+              "RelativeToolTip": "ApiaAcademia.Repository\\Migrations\\20260712014337_token.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-12T01:43:37.944Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ApiAcademia.csproj",
+              "DocumentMoniker": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\ApiAcademia.csproj",
+              "RelativeDocumentMoniker": "ApiAcademia\\ApiAcademia.csproj",
+              "ToolTip": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\ApiAcademia.csproj",
+              "RelativeToolTip": "ApiAcademia\\ApiAcademia.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-06-17T19:32:28.856Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

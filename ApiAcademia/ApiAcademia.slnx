@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
+  <Project Path="ApiaAcademia.Repository/ApiAcademia.Repository.csproj" />
+  <Project Path="ApiAcademia.Business/ApiAcademia.Business.csproj" />
+  <Project Path="ApiAcademia/ApiAcademia.csproj" />
+</Solution>
