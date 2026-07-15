@@ -2,6 +2,7 @@
 using ApiAcademia.Business.DTOs.Response;
 using ApiAcademia.Repository.Entities;
 using ApiAcademia.Repository.Repository;
+using Microsoft.EntityFrameworkCore;
 using System.Numerics;
 
 namespace ApiAcademia.Business.Services;
@@ -13,6 +14,7 @@ public interface IPlanoService
     PlanoResponseDTO BuscarPorId(int id);
 
     bool Criar(CriarPlanoDTO dto);
+    void Atualizar(int id, CriarPlanoDTO dto);
 
     bool Remover(int id);
 }
@@ -36,7 +38,8 @@ public class PlanoService : IPlanoService
             Nome = plano.Nome,
             Valor = plano.Valor,
             DuracaoDias = plano.DuracaoDias,
-            Descricao = plano.Descricao
+            Descricao = plano.Descricao,
+            MatriculasAtivas = plano.MatriculasAtivas
         }).ToList();
     }
 
@@ -75,6 +78,22 @@ public class PlanoService : IPlanoService
         _planoRepository.Adicionar(novoPlano);
 
         return true;
+    }
+
+    public void Atualizar(int id, CriarPlanoDTO dto)
+    {
+        var plano = _planoRepository.BuscarPorId(id);
+        if (plano == null)
+        {
+            throw new Exception("Matrícula não encontrada.");
+        }
+        
+        plano.Nome = plano.Nome;
+        plano.Valor = plano.Valor;
+        plano.Descricao = plano.Descricao;
+        plano.DuracaoDias = plano.DuracaoDias;
+
+        _planoRepository.Atualizar(plano);
     }
 
     public bool Remover(int id)

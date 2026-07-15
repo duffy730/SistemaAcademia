@@ -63,7 +63,7 @@ function AlunoModal({ fechar, aoSalvar, aluno }) {
         }
         else{
 
-            await api.post("/aluno/criar",{
+            await api.post("/alunos/criar-aluno",{
 
                 nome:form.nome,
                 email:form.email,

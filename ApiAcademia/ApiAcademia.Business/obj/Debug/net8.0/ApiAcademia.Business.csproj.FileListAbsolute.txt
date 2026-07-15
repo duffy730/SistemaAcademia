@@ -69,3 +69,4 @@ E:\Repository\wadadawdwad\ApiAcademia\ApiAcademia.Business\obj\Debug\net8.0\refi
 E:\Repository\wadadawdwad\ApiAcademia\ApiAcademia.Business\obj\Debug\net8.0\ApiAcademia.Business.pdb
 E:\Repository\wadadawdwad\ApiAcademia\ApiAcademia.Business\obj\Debug\net8.0\ApiAcademia.Business.genruntimeconfig.cache
 E:\Repository\wadadawdwad\ApiAcademia\ApiAcademia.Business\obj\Debug\net8.0\ref\ApiAcademia.Business.dll
+e:\Repository\wadadawdwad\ApiAcademia\ApiAcademia.Business\obj\Debug\net8.0\ApiAcademia.Business.sourcelink.json

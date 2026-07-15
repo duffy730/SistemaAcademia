@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import { FaUser } from 'react-icons/fa'; 
 import "./Sidebar.css";
 import { useAuth } from "../../context/AuthContext";
 
@@ -72,8 +73,9 @@ function Sidebar() {
 
       <div className="sidebar-footer">
         <div className="sidebar-user">
-          <div className="sidebar-avatar"></div>
-
+          <div className="sidebar-avatar">
+            <FaUser size={21}/>
+          </div>
           <div>
             <strong>{usuario?.nome ?? "Carregando..."}</strong>
             <small>{usuario?.role ?? ""}</small>
