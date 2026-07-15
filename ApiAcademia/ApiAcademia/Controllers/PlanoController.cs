@@ -45,6 +45,20 @@ public class PlanoController : ControllerBase
     }
 
     [Authorize(Roles = "Admin")]
+    [HttpPut("atualizar-plano/{id}")]
+    public IActionResult Atualizar(int id, [FromBody] CriarPlanoDTO dto)
+    {
+        var planoExistente = _service.BuscarPorId(id);
+
+        if (planoExistente == null)
+            return NotFound(new { messagem = "Plano não encontrada." });
+
+        _service.Atualizar(id, dto);
+
+        return Ok(new {mensagem = "Plano atualizada com sucesso"});
+    }
+
+    [Authorize(Roles = "Admin")]
     [HttpDelete("deletar/{id}")]
     public IActionResult Remover(int id)
     {

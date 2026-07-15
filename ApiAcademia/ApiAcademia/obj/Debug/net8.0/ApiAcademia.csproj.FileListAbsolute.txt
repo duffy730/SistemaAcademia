@@ -578,3 +578,4 @@ E:\Repository\wadadawdwad\ApiAcademia\ApiAcademia\obj\Debug\net8.0\refint\ApiAca
 E:\Repository\wadadawdwad\ApiAcademia\ApiAcademia\obj\Debug\net8.0\ApiAcademia.pdb
 E:\Repository\wadadawdwad\ApiAcademia\ApiAcademia\obj\Debug\net8.0\ApiAcademia.genruntimeconfig.cache
 E:\Repository\wadadawdwad\ApiAcademia\ApiAcademia\obj\Debug\net8.0\ref\ApiAcademia.dll
+e:\Repository\wadadawdwad\ApiAcademia\ApiAcademia\obj\Debug\net8.0\ApiAcademia.sourcelink.json

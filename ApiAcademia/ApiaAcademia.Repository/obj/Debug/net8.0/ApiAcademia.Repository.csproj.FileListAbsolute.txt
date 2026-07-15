@@ -57,3 +57,4 @@ E:\Repository\wadadawdwad\ApiAcademia\ApiaAcademia.Repository\obj\Debug\net8.0\r
 E:\Repository\wadadawdwad\ApiAcademia\ApiaAcademia.Repository\obj\Debug\net8.0\ApiAcademia.Repository.pdb
 E:\Repository\wadadawdwad\ApiAcademia\ApiaAcademia.Repository\obj\Debug\net8.0\ApiAcademia.Repository.genruntimeconfig.cache
 E:\Repository\wadadawdwad\ApiAcademia\ApiaAcademia.Repository\obj\Debug\net8.0\ref\ApiAcademia.Repository.dll
+e:\Repository\wadadawdwad\ApiAcademia\ApiaAcademia.Repository\obj\Debug\net8.0\ApiAcademia.Repository.sourcelink.json

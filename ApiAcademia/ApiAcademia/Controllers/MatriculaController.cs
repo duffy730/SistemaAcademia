@@ -96,22 +96,19 @@ public class MatriculaController : ControllerBase
     }
 
     [Authorize(Roles = "Admin, Recepcionista")]
-    [HttpPut("desativar/{id}")]
+    [HttpPatch("desativar/{id}")]
     public IActionResult Desativar(int id)
     {
-        var desativar = _service.Desativar(id);
+        var resultado = _service.Desativar(id);
 
-        if (!desativar)
+        if (!resultado)
         {
-            return NotFound(new
-            {
-                mensagem = "Matrícula não encontrada"
-            });
+            return NotFound("Matrícula não encontrada.");
         }
 
         return Ok(new
         {
-            mensagem = "Matrícula desativada com sucesso"
+            mensagem = "Matrícula desativada com sucesso."
         });
     }
 

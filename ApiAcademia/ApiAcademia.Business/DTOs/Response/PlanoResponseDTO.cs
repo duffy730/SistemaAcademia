@@ -13,4 +13,5 @@ public class PlanoResponseDTO
     public decimal Valor { get; set; }
     public int DuracaoDias { get; set; }
     public string Descricao { get; set; }
+    public int MatriculasAtivas { get; set; }
 }

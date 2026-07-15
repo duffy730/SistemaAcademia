@@ -4,6 +4,8 @@ import Login from "../pages/Login/Login";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Alunos from "../pages/Alunos/Alunos";
+import Planos from "../pages/Planos/Planos";
+import Matriculas from "../pages/Matriculas/Matriculas";
 
 function PaginaTemporaria({ titulo }) {
   return <h1>{titulo}</h1>;
@@ -20,20 +22,14 @@ function AppRoutes() {
 
           <Route path="/alunos" element={<Alunos />} />
 
-          <Route
-            path="/planos"
-            element={<PaginaTemporaria titulo="Planos" />}
-          />
+          <Route path="/planos" element={<Planos />} />
 
           <Route
             path="/produtos"
             element={<PaginaTemporaria titulo="Produtos" />}
           />
 
-          <Route
-            path="/matriculas"
-            element={<PaginaTemporaria titulo="Matrículas" />}
-          />
+          <Route path="/matriculas" element={<Matriculas />} />
 
           <Route
             path="/pagamentos"
