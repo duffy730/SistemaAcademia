@@ -1,0 +1,303 @@
+.pagamento-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(3, 8, 15, 0.78);
+  backdrop-filter: blur(5px);
+}
+
+.pagamento-modal {
+  width: min(100%, 680px);
+  max-height: calc(100vh - 40px);
+  border: 1px solid #263649;
+  border-radius: 17px;
+  color: #f7f9fc;
+  background: #111c29;
+  box-shadow: 0 28px 75px rgba(0, 0, 0, 0.52);
+  overflow-y: auto;
+}
+
+.pagamento-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 24px;
+  border-bottom: 1px solid #223145;
+}
+
+.pagamento-modal-header > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.pagamento-modal-heading-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 43px;
+  height: 43px;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 11px;
+  color: #4de0a0;
+  background: rgba(16, 185, 129, 0.09);
+}
+
+.pagamento-modal-header h2 {
+  margin: 0 0 5px;
+  font-size: 20px;
+}
+
+.pagamento-modal-header p {
+  margin: 0;
+  color: #8f9cad;
+  font-size: 13px;
+}
+
+.pagamento-modal-close {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border: 0;
+  border-radius: 8px;
+  color: #8f9cad;
+  background: transparent;
+  cursor: pointer;
+}
+
+.pagamento-modal-close:hover:not(:disabled) {
+  color: #fff;
+  background: #1b2938;
+}
+
+.pagamento-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+}
+
+.pagamento-type-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.pagamento-type-selector button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 45px;
+  border: 1px solid #28384b;
+  border-radius: 9px;
+  color: #9ca9ba;
+  background: #0b1521;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.pagamento-type-selector button.active {
+  border-color: #0ba96c;
+  color: #57e4a7;
+  background: rgba(11, 169, 108, 0.1);
+}
+
+.pagamento-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.pagamento-modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pagamento-modal-field > span {
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.pagamento-modal-field > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 13px;
+  border: 1px solid #28384b;
+  border-radius: 9px;
+  color: #748399;
+  background: #0b1521;
+}
+
+.pagamento-modal-field > div:focus-within {
+  border-color: #0ba96c;
+  box-shadow: 0 0 0 3px rgba(11, 169, 108, 0.1);
+}
+
+.pagamento-modal-field input,
+.pagamento-modal-field select {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: #edf3f8;
+  background: #0b1521;
+  font: inherit;
+  font-size: 14px;
+  color-scheme: dark;
+}
+
+.pagamento-modal-field select option {
+  color: #edf3f8;
+  background: #0b1521;
+}
+
+.pagamento-modal-field input::placeholder {
+  color: #657286;
+}
+
+.pagamento-modal-field input:disabled,
+.pagamento-modal-field select:disabled {
+  cursor: default;
+  color: #c7d1dc;
+  opacity: 1;
+}
+
+.pagamento-modal-field input[type="number"]::-webkit-inner-spin-button,
+.pagamento-modal-field input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.pagamento-modal-field input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.pagamento-stock-summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 10px;
+  color: #8ac5ff;
+  background: rgba(59, 130, 246, 0.07);
+}
+
+.pagamento-stock-summary > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pagamento-stock-summary strong {
+  color: #edf4fb;
+  font-size: 14px;
+}
+
+.pagamento-stock-summary span {
+  color: #9bb0c4;
+  font-size: 12px;
+}
+
+.pagamento-stock-warning {
+  margin: 0;
+  padding: 11px 13px;
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  border-radius: 8px;
+  color: #fbcf72;
+  background: rgba(245, 158, 11, 0.07);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.pagamento-modal-error {
+  margin: 0;
+  padding: 11px 13px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  color: #fda4af;
+  background: rgba(239, 68, 68, 0.08);
+  font-size: 13px;
+}
+
+.pagamento-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 11px;
+  padding: 18px 24px;
+  border-top: 1px solid #223145;
+  background: rgba(8, 17, 27, 0.55);
+}
+
+.pagamento-modal-footer button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 17px;
+  border-radius: 9px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.pagamento-modal-cancel {
+  border: 1px solid #304055;
+  color: #d8e0e9;
+  background: #172332;
+}
+
+.pagamento-modal-save {
+  border: 1px solid #11a76c;
+  color: #fff;
+  background: linear-gradient(135deg, #09965f, #0bb975);
+}
+
+.pagamento-modal-footer button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (max-width: 560px) {
+  .pagamento-modal-overlay {
+    padding: 10px;
+  }
+
+  .pagamento-modal {
+    max-height: calc(100vh - 20px);
+  }
+
+  .pagamento-modal-header,
+  .pagamento-modal-body,
+  .pagamento-modal-footer {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .pagamento-modal-grid,
+  .pagamento-type-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .pagamento-modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .pagamento-modal-footer button {
+    width: 100%;
+  }
+}

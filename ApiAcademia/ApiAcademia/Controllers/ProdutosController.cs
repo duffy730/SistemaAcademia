@@ -44,6 +44,18 @@ public class ProdutosController : ControllerBase
         return Ok("Produto criado com sucesso");
     }
 
+    [Authorize(Roles = "Admin, Recepcionista")]
+    [HttpPut("atualizar-produto/{id}")]
+    public IActionResult Atualizar(int id, [FromBody] CriarProdutoDTO dto)
+    {
+        var atualizar = _service.Atualizar(id, dto);
+
+        if (!atualizar)
+            return NotFound(new { messagem = "Produto não encontrado." });
+
+        return Ok("Produto atualizado com sucesso");
+    }
+
     [Authorize(Roles = "Admin")]
     [HttpDelete("deletar/{id}")]
     public IActionResult Remover(int id)

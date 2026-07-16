@@ -19,4 +19,8 @@ public class PagamentoEntitie
     public DateOnly DataPagamento { get; set; }
 
     public string MetodoPagamento { get; set; }
+
+    public int? ProdutoId { get; set; }
+    public ProdutosEntitie? Produto { get; set; }
+    public int Quantidade { get; set; }
 }

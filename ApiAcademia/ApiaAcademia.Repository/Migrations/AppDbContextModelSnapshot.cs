@@ -103,11 +103,19 @@ namespace ApiAcademia.Repository.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ProdutoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Valor")
                         .HasPrecision(10, 2)
                         .HasColumnType("decimal(10,2)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProdutoId");
 
                     b.ToTable("Pagamentos");
                 });
@@ -205,12 +213,26 @@ namespace ApiAcademia.Repository.Migrations
                         .IsRequired();
 
                     b.HasOne("ApiAcademia.Repository.Entities.PlanoEntitie", "Plano")
-                        .WithMany()
+                        .WithMany("Matriculas")
                         .HasForeignKey("PlanoId");
 
                     b.Navigation("Aluno");
 
                     b.Navigation("Plano");
+                });
+
+            modelBuilder.Entity("ApiAcademia.Repository.Entities.PagamentoEntitie", b =>
+                {
+                    b.HasOne("ApiAcademia.Repository.Entities.ProdutosEntitie", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId");
+
+                    b.Navigation("Produto");
+                });
+
+            modelBuilder.Entity("ApiAcademia.Repository.Entities.PlanoEntitie", b =>
+                {
+                    b.Navigation("Matriculas");
                 });
 #pragma warning restore 612, 618
         }

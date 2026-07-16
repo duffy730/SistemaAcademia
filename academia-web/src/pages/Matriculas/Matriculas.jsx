@@ -101,6 +101,10 @@ function Matriculas() {
   const matriculasFiltradas = useMemo(() => {
     const termo = busca.trim().toLowerCase();
 
+    const planoSelecionado = planos.find(
+      (plano) => String(plano.id) === planoFiltro
+    );
+
     return matriculas.filter((matricula) => {
       const aluno = obterAluno(matricula, alunos);
       const plano = obterPlano(matricula, planos);
@@ -123,9 +127,33 @@ function Matriculas() {
         (status === "ativas" && ativa) ||
         (status === "nao-ativas" && !ativa);
 
-      const planoId = String(matricula.planoId ?? plano?.id ?? "");
-      const correspondePlano =
-        planoFiltro === "todos" || planoFiltro === planoId;
+      const planoIdMatricula =
+      matricula.planoId ??
+      plano?.id ??
+      null;
+
+    const nomePlanoMatricula = obterNomePlano(
+      matricula,
+      plano
+    )
+      .trim()
+      .toLowerCase();
+
+    const nomePlanoSelecionado =
+      planoSelecionado?.nome
+        ?.trim()
+        .toLowerCase() ?? "";
+
+    const correspondePlano =
+      planoFiltro === "todos" ||
+      (
+        planoIdMatricula !== null &&
+        String(planoIdMatricula) === planoFiltro
+      ) ||
+      (
+        nomePlanoSelecionado &&
+        nomePlanoMatricula === nomePlanoSelecionado
+      );
 
       const inicio = obterDataInicio(matricula);
 
@@ -639,7 +667,9 @@ function Matriculas() {
                         </div>
                       </td>
 
-                      <td>{formatarData(inicio)}</td>
+                      <td>
+                        <strong>{formatarData(inicio)}</strong>
+                      </td>
 
                       <td>
                         <div className="matricula-termino">
@@ -1009,13 +1039,46 @@ function obterAluno(matricula, alunos) {
 }
 
 function obterPlano(matricula, planos) {
-  if (matricula.plano && typeof matricula.plano === "object") {
+  if (
+    matricula.plano &&
+    typeof matricula.plano === "object"
+  ) {
     return matricula.plano;
   }
 
+  if (matricula.planoId !== null && matricula.planoId !== undefined) {
+    const planoPorId = planos.find(
+      (plano) =>
+        Number(plano.id) === Number(matricula.planoId)
+    );
+
+    if (planoPorId) {
+      return planoPorId;
+    }
+  }
+
+  const nomePlanoMatricula =
+    typeof matricula.plano === "string"
+      ? matricula.plano
+      : matricula.planoNome || matricula.nomePlano;
+
+  if (!nomePlanoMatricula) {
+    return null;
+  }
+
   return planos.find(
-    (plano) => Number(plano.id) === Number(matricula.planoId)
+    (plano) =>
+      normalizarTexto(plano.nome) ===
+      normalizarTexto(nomePlanoMatricula)
   );
+}
+
+function normalizarTexto(valor) {
+  return String(valor ?? "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 }
 
 function obterNomeAluno(matricula, aluno) {
@@ -1070,23 +1133,38 @@ function obterDataInicio(matricula) {
 }
 
 function obterDataTermino(matricula, plano) {
-  const valor =
+  const dataRecebida =
     matricula.dataTermino ||
     matricula.dataFim ||
     matricula.dataVencimento;
 
-  if (valor) return converterParaData(valor);
+  if (dataRecebida) {
+    return converterParaData(dataRecebida);
+  }
 
-  const inicio = obterDataInicio(matricula);
+  const dataInicio = obterDataInicio(matricula);
+
   const duracaoDias = Number(
-    plano?.duracaoDias ?? matricula.duracaoDias ?? 0
+    matricula.duracaoDias ??
+    plano?.duracaoDias ??
+    0
   );
 
-  if (!inicio || !duracaoDias) return null;
+  if (
+    !dataInicio ||
+    Number.isNaN(dataInicio.getTime()) ||
+    duracaoDias <= 0
+  ) {
+    return null;
+  }
 
-  const termino = new Date(inicio);
-  termino.setDate(termino.getDate() + duracaoDias);
-  return termino;
+  const dataTermino = new Date(dataInicio);
+
+  dataTermino.setDate(
+    dataTermino.getDate() + duracaoDias
+  );
+
+  return dataTermino;
 }
 
 function converterParaData(valor) {
