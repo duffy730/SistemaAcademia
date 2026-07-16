@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApiAcademia.Repository.Repository;
 
@@ -12,9 +13,13 @@ public interface IPagamentoRepository
 {
     List<PagamentoEntitie> Listar();
     PagamentoEntitie BuscarPorId(int Id);
-    void Adicionar(PagamentoEntitie pagamento);
-    void Atualizar(PagamentoEntitie pagamento);
-    void Remover(int Id);
+
+    bool AdicionarComBaixaEstoque(PagamentoEntitie pagamento);
+    bool AtualizarComAjusteEstoque(
+        int id,
+        PagamentoEntitie novosDados
+    );
+    bool RemoverComDevolucaoEstoque(int id);
 
 }
 public class PagamentoRepository : IPagamentoRepository
@@ -36,33 +41,211 @@ public class PagamentoRepository : IPagamentoRepository
         return _context.Pagamentos.ToList();
     }
 
-    public void Adicionar(PagamentoEntitie pagamento)
+    public bool AdicionarComBaixaEstoque(
+        PagamentoEntitie pagamento
+    )
     {
-        _context.Pagamentos.Add(pagamento);
+        using var transaction =
+            _context.Database.BeginTransaction();
 
-        _context.SaveChanges();
-    }
-
-    public void Atualizar(PagamentoEntitie pagamento)
-    {
-        var pagamentoExistente = BuscarPorId(pagamento.Id);
-        if (pagamentoExistente != null)
+        try
         {
-            pagamentoExistente.Valor = pagamento.Valor;
-            pagamentoExistente.DataPagamento = pagamento.DataPagamento;
-            pagamentoExistente.MetodoPagamento = pagamento.MetodoPagamento;
+            if (pagamento.ProdutoId.HasValue)
+            {
+                var produto = _context.Produtos.FirstOrDefault(
+                    produto =>
+                        produto.Id == pagamento.ProdutoId.Value
+                );
+
+                if (produto == null)
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+
+                if (pagamento.Quantidade <= 0)
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+
+                if (produto.Estoque < pagamento.Quantidade)
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+
+                produto.Estoque -= pagamento.Quantidade;
+
+                // Não confie no preço enviado pelo React.
+                pagamento.Valor =
+                    produto.Preco * pagamento.Quantidade;
+            }
+            else
+            {
+                pagamento.Quantidade = 0;
+            }
+
+            _context.Pagamentos.Add(pagamento);
             _context.SaveChanges();
+
+            transaction.Commit();
+
+            return true;
+        }
+        catch
+        {
+            transaction.Rollback();
+            throw;
         }
     }
 
-    public void Remover(int id)
+    public bool AtualizarComAjusteEstoque(
+        int id,
+        PagamentoEntitie novosDados
+    )
     {
-        var pagamento = BuscarPorId(id);
+        using var transaction =
+            _context.Database.BeginTransaction();
 
-        if (pagamento != null)
+        try
         {
+            var pagamentoAtual =
+                _context.Pagamentos.FirstOrDefault(
+                    pagamento => pagamento.Id == id
+                );
+
+            if (pagamentoAtual == null)
+            {
+                transaction.Rollback();
+                return false;
+            }
+
+            // Devolve ao estoque a venda antiga.
+            if (pagamentoAtual.ProdutoId.HasValue)
+            {
+                var produtoAntigo =
+                    _context.Produtos.FirstOrDefault(
+                        produto =>
+                            produto.Id ==
+                            pagamentoAtual.ProdutoId.Value
+                    );
+
+                if (produtoAntigo != null)
+                {
+                    produtoAntigo.Estoque +=
+                        pagamentoAtual.Quantidade;
+                }
+            }
+
+            decimal valorFinal = novosDados.Valor;
+
+            // Aplica a nova venda.
+            if (novosDados.ProdutoId.HasValue)
+            {
+                var produtoNovo =
+                    _context.Produtos.FirstOrDefault(
+                        produto =>
+                            produto.Id ==
+                            novosDados.ProdutoId.Value
+                    );
+
+                if (
+                    produtoNovo == null ||
+                    novosDados.Quantidade <= 0 ||
+                    produtoNovo.Estoque <
+                        novosDados.Quantidade
+                )
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+
+                produtoNovo.Estoque -=
+                    novosDados.Quantidade;
+
+                valorFinal =
+                    produtoNovo.Preco *
+                    novosDados.Quantidade;
+            }
+            else
+            {
+                novosDados.Quantidade = 0;
+            }
+
+            pagamentoAtual.MatriculaId =
+                novosDados.MatriculaId;
+
+            pagamentoAtual.ProdutoId =
+                novosDados.ProdutoId;
+
+            pagamentoAtual.Quantidade =
+                novosDados.Quantidade;
+
+            pagamentoAtual.Valor = valorFinal;
+
+            pagamentoAtual.MetodoPagamento =
+                novosDados.MetodoPagamento;
+
+            pagamentoAtual.DataPagamento =
+                novosDados.DataPagamento;
+
+            _context.SaveChanges();
+            transaction.Commit();
+
+            return true;
+        }
+        catch
+        {
+            transaction.Rollback();
+            throw;
+        }
+    }
+
+    public bool RemoverComDevolucaoEstoque(int id)
+    {
+        using var transaction =
+            _context.Database.BeginTransaction();
+
+        try
+        {
+            var pagamento =
+                _context.Pagamentos.FirstOrDefault(
+                    pagamento => pagamento.Id == id
+                );
+
+            if (pagamento == null)
+            {
+                transaction.Rollback();
+                return false;
+            }
+
+            if (pagamento.ProdutoId.HasValue)
+            {
+                var produto =
+                    _context.Produtos.FirstOrDefault(
+                        produto =>
+                            produto.Id ==
+                            pagamento.ProdutoId.Value
+                    );
+
+                if (produto != null)
+                {
+                    produto.Estoque += pagamento.Quantidade;
+                }
+            }
+
             _context.Pagamentos.Remove(pagamento);
             _context.SaveChanges();
+
+            transaction.Commit();
+
+            return true;
+        }
+        catch
+        {
+            transaction.Rollback();
+            throw;
         }
     }
 }

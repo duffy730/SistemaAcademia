@@ -41,42 +41,77 @@ public class PagamentoController : ControllerBase
 
     [Authorize(Roles = "Admin, Recepcionista")]
     [HttpPost("criar-pagamento")]
-    public IActionResult Criar([FromBody] CriarPagamentoDTO dto)
+    public IActionResult Criar(
+        [FromBody] CriarPagamentoDTO dto)
     {
-        _service.Criar(dto);
+        try
+        {
+            var resultado = _service.Criar(dto);
 
-        return Ok("Pagamento criado com sucesso");
+            if (!resultado)
+            {
+                return BadRequest(new
+                {
+                    mensagem = "Não foi possível criar o pagamento."
+                });
+            }
+
+            return Ok(new
+            {
+                mensagem = "Pagamento criado com sucesso."
+            });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new
+            {
+                mensagem = ex.Message
+            });
+        }
     }
+
 
     [Authorize(Roles = "Admin, Recepcionista")]
     [HttpPut("atualizar-pagamento/{id}")]
-    public IActionResult Atualizar(int id, [FromBody] CriarPagamentoDTO dto)
+    public IActionResult Atualizar(
+        int id,
+        [FromBody] CriarPagamentoDTO dto
+    )
     {
-        var atualizar = _service.Atualizar(id, dto);
+        var resultado = _service.Atualizar(id, dto);
 
-        if (!atualizar)
-            return NotFound(new { messagem = "Pagamento não encontrado." });
+        if (!resultado)
+        {
+            return BadRequest(new
+            {
+                mensagem =
+                    "Pagamento não encontrado ou estoque insuficiente."
+            });
+        }
 
-        return Ok("Pagamento atualizado com sucesso");
+        return Ok(new
+        {
+            mensagem = "Pagamento atualizado com sucesso."
+        });
     }
 
     [Authorize(Roles = "Admin, Recepcionista")]
     [HttpDelete("remover-pagamento/{id}")]
     public IActionResult Remover(int id)
     {
-        var removido = _service.Remover(id);
+        var resultado = _service.Remover(id);
 
-        if(!removido)
+        if (!resultado)
         {
             return NotFound(new
             {
-                mensagem = "Pagamento não encontrada"
+                mensagem = "Pagamento não encontrado."
             });
         }
 
         return Ok(new
         {
-            mensagem = "Pagamento removido com sucesso"
+            mensagem = "Pagamento removido e estoque restaurado."
         });
     }
 }

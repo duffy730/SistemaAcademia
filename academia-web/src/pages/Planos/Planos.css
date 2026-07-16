@@ -803,3 +803,24 @@
     width: 100%;
   }
 }
+
+/* Remove as setas dos inputs numéricos no Chrome, Edge e Safari */
+.planos-extra-filters input[type="number"]::-webkit-inner-spin-button,
+.planos-modal-field input[type="number"]::-webkit-inner-spin-button,
+.planos-modal-field input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Remove as setas no Firefox */
+.planos-modal-field input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.planos-modal-field input[type="number"] {
+  color: #edf3f8;
+  background: transparent;
+  caret-color: #4ade80;
+}
