@@ -25,4 +25,6 @@ public class PagamentoResponseDTO
         string.Empty;
 
     public DateOnly DataPagamento { get; set; }
+    public string Status { get; set; } =
+    string.Empty;
 }

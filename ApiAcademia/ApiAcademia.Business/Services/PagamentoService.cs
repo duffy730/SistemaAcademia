@@ -34,20 +34,40 @@ public class PagamentoService : IPagamentoService
 
     public List<PagamentoResponseDTO> listaPagamento()
     {
-        var pagamentos = _pagamentoRepository.Listar();
+        var pagamentos =
+            _pagamentoRepository.Listar();
 
         return pagamentos
-            .Select(pagamento => new PagamentoResponseDTO
-            {
-                Id = pagamento.Id,
-                MatriculaId = pagamento.MatriculaId,
-                ProdutoId = pagamento.ProdutoId,
-                Quantidade = pagamento.Quantidade,
-                Descricao = pagamento.Descricao,
-                Valor = pagamento.Valor,
-                DataPagamento = pagamento.DataPagamento,
-                MetodoPagamento = pagamento.MetodoPagamento
-            })
+            .Select(pagamento =>
+                new PagamentoResponseDTO
+                {
+                    Id = pagamento.Id,
+
+                    MatriculaId =
+                        pagamento.MatriculaId,
+
+                    ProdutoId =
+                        pagamento.ProdutoId,
+
+                    Quantidade =
+                        pagamento.Quantidade,
+
+                    Descricao =
+                        pagamento.Descricao,
+
+                    Valor =
+                        pagamento.Valor,
+
+                    MetodoPagamento =
+                        pagamento.MetodoPagamento,
+
+                    DataPagamento =
+                        pagamento.DataPagamento,
+
+                    Status =
+                        pagamento.Status
+                }
+            )
             .ToList();
     }
 
@@ -64,13 +84,30 @@ public class PagamentoService : IPagamentoService
         return new PagamentoResponseDTO
         {
             Id = pagamento.Id,
-            MatriculaId = pagamento.MatriculaId,
-            ProdutoId = pagamento.ProdutoId,
-            Quantidade = pagamento.Quantidade,
-            Descricao = pagamento.Descricao,
-            Valor = pagamento.Valor,
-            DataPagamento = pagamento.DataPagamento,
-            MetodoPagamento = pagamento.MetodoPagamento
+
+            MatriculaId =
+                pagamento.MatriculaId,
+
+            ProdutoId =
+                pagamento.ProdutoId,
+
+            Quantidade =
+                pagamento.Quantidade,
+
+            Descricao =
+                pagamento.Descricao,
+
+            Valor =
+                pagamento.Valor,
+
+            MetodoPagamento =
+                pagamento.MetodoPagamento,
+
+            DataPagamento =
+                pagamento.DataPagamento,
+
+            Status =
+                pagamento.Status
         };
     }
 
@@ -88,56 +125,91 @@ public class PagamentoService : IPagamentoService
             );
         }
 
-        if (
-            dto.ProdutoId.HasValue &&
-            dto.Quantidade <= 0
-        )
+        if (string.IsNullOrWhiteSpace(
+            dto.MetodoPagamento))
+        {
+            throw new Exception(
+                "Informe o método de pagamento."
+            );
+        }
+
+        /*
+        * PAGAMENTO DE PLANO
+        *
+        * Não cria outro registro.
+        * Atualiza a cobrança pendente existente.
+        */
+        if (!dto.ProdutoId.HasValue)
+        {
+            var pagamentoQuitado =
+                _pagamentoRepository
+                    .QuitarPagamentoPendente(
+                        dto.MatriculaId,
+                        dto.MetodoPagamento.Trim(),
+                        DateOnly.FromDateTime(
+                            dto.DataPagamento
+                        )
+                    );
+
+            if (!pagamentoQuitado)
+            {
+                throw new Exception(
+                    "Essa matrícula não possui pagamento pendente."
+                );
+            }
+
+            return true;
+        }
+
+        /*
+        * PAGAMENTO DE PRODUTO
+        *
+        * Venda de produto cria um registro novo
+        * e reduz o estoque.
+        */
+        if (dto.Quantidade <= 0)
         {
             throw new Exception(
                 "A quantidade precisa ser maior que zero."
             );
         }
 
-        if (
-            !dto.ProdutoId.HasValue &&
-            dto.Valor <= 0
-        )
-        {
-            throw new Exception(
-                "O valor precisa ser maior que zero."
-            );
-        }
+        var pagamentoProduto =
+            new PagamentoEntitie
+            {
+                MatriculaId = dto.MatriculaId,
 
-        var pagamento = new PagamentoEntitie
-        {
-            MatriculaId = dto.MatriculaId,
-            ProdutoId = dto.ProdutoId,
+                ProdutoId = dto.ProdutoId,
 
-            Quantidade = dto.ProdutoId.HasValue
-                ? dto.Quantidade
-                : 0,
+                Quantidade = dto.Quantidade,
 
-            Descricao =
-                string.IsNullOrWhiteSpace(dto.Descricao)
-                    ? dto.ProdutoId.HasValue
+                Descricao =
+                    string.IsNullOrWhiteSpace(dto.Descricao)
                         ? "Venda de produto"
-                        : "Pagamento de plano"
-                    : dto.Descricao.Trim(),
+                        : dto.Descricao.Trim(),
 
-            Valor = dto.Valor,
+                /*
+                * O repositório recalcula usando
+                * o preço armazenado no banco.
+                */
+                Valor = 0,
 
-            MetodoPagamento =
-                dto.MetodoPagamento,
+                MetodoPagamento =
+                    dto.MetodoPagamento.Trim(),
 
-            DataPagamento =
-                DateOnly.FromDateTime(
-                    dto.DataPagamento
-                )
-        };
+                DataPagamento =
+                    DateOnly.FromDateTime(
+                        dto.DataPagamento
+                    ),
+
+                Status = "Pago"
+            };
 
         var resultado =
             _pagamentoRepository
-                .AdicionarComBaixaEstoque(pagamento);
+                .AdicionarComBaixaEstoque(
+                    pagamentoProduto
+                );
 
         if (!resultado)
         {

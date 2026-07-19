@@ -20,7 +20,12 @@ public interface IPagamentoRepository
         PagamentoEntitie novosDados
     );
     bool RemoverComDevolucaoEstoque(int id);
-
+    bool ExistePagamentoPendente(int matriculaId);
+    bool QuitarPagamentoPendente(
+    int matriculaId,
+    string metodoPagamento,
+    DateOnly dataPagamento
+    );
 }
 public class PagamentoRepository : IPagamentoRepository
 {
@@ -247,5 +252,58 @@ public class PagamentoRepository : IPagamentoRepository
             transaction.Rollback();
             throw;
         }
+    }
+
+    public bool ExistePagamentoPendente(int matriculaId)
+    {
+        return _context.Pagamentos.Any(
+            pagamento =>
+                pagamento.MatriculaId == matriculaId &&
+                pagamento.Status.ToLower() == "pendente"
+        );
+    }
+
+    public bool QuitarPagamentoPendente(
+    int matriculaId,
+    string metodoPagamento,
+    DateOnly dataPagamento)
+    {
+        var pagamentoPendente =
+            _context.Pagamentos.FirstOrDefault(
+                pagamento =>
+                    pagamento.MatriculaId == matriculaId &&
+                    pagamento.ProdutoId == null &&
+                    pagamento.Status == "Pendente"
+            );
+
+        if (pagamentoPendente == null)
+        {
+            return false;
+        }
+
+        pagamentoPendente.Status = "Pago";
+
+        pagamentoPendente.MetodoPagamento =
+            metodoPagamento;
+
+        pagamentoPendente.DataPagamento =
+            dataPagamento;
+
+        if (
+            pagamentoPendente.Descricao.StartsWith(
+                "Mensalidade pendente -"
+            )
+        )
+        {
+            pagamentoPendente.Descricao =
+                pagamentoPendente.Descricao.Replace(
+                    "Mensalidade pendente -",
+                    "Pagamento do"
+                );
+        }
+
+        _context.SaveChanges();
+
+        return true;
     }
 }

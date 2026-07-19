@@ -18,12 +18,14 @@ const ROTAS = {
   removerPagamento: (id) => `/pagamentos/remover-pagamento/${id}`,
   listarMatriculas: "/matriculas/listar",
   listarProdutos: "/produtos/listar",
+  listarPlanos: "/planos/listar",
 };
 
 function Pagamentos() {
   const [pagamentos, setPagamentos] = useState([]);
   const [matriculas, setMatriculas] = useState([]);
   const [produtos, setProdutos] = useState([]);
+  const [planos, setPlanos] = useState([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState("");
 
@@ -49,16 +51,22 @@ function Pagamentos() {
       setCarregando(true);
       setErro("");
 
-      const [pagamentosResponse, matriculasResponse, produtosResponse] =
-        await Promise.all([
-          api.get(ROTAS.listarPagamentos),
-          api.get(ROTAS.listarMatriculas),
-          api.get(ROTAS.listarProdutos),
-        ]);
+      const [
+        pagamentosResponse,
+        matriculasResponse,
+        produtosResponse,
+        planosResponse,
+      ] = await Promise.all([
+        api.get(ROTAS.listarPagamentos),
+        api.get(ROTAS.listarMatriculas),
+        api.get(ROTAS.listarProdutos),
+        api.get(ROTAS.listarPlanos),
+      ]);
 
       setPagamentos(Array.isArray(pagamentosResponse.data) ? pagamentosResponse.data : []);
       setMatriculas(Array.isArray(matriculasResponse.data) ? matriculasResponse.data : []);
       setProdutos(Array.isArray(produtosResponse.data) ? produtosResponse.data : []);
+      setPlanos(Array.isArray(planosResponse.data) ? planosResponse.data : []);
     } catch (error) {
       console.error("Erro ao carregar pagamentos:", error.response?.data ?? error.message);
       setErro("Não foi possível carregar os pagamentos.");
@@ -87,6 +95,7 @@ function Pagamentos() {
       const texto = normalizarTexto([
         obterNomeAluno(pagamento, matricula),
         obterNomeOrigem(pagamento, matricula, produto),
+        pagamento.descricao,
         pagamento.id,
         pagamento.matriculaId,
       ].join(" "));
@@ -182,20 +191,13 @@ function Pagamentos() {
       setModalAberto(false);
       setPagamentoSelecionado(null);
     } catch (error) {
-  console.error("Status:", error.response?.status);
-  console.error("Resposta da API:", error.response?.data);
-  console.error("Dados enviados:", dados);
-
-  const mensagem =
-    error.response?.data?.mensagem ||
-    error.response?.data?.message ||
-    (typeof error.response?.data === "string"
-      ? error.response.data
-      : null) ||
-    "Não foi possível salvar o pagamento.";
-
-  throw new Error(mensagem);
-}
+      console.error("Erro ao salvar pagamento:", error.response?.data ?? error.message);
+      throw new Error(
+        obterMensagemErro(error) || "Não foi possível salvar o pagamento."
+      );
+    } finally {
+      setSalvando(false);
+    }
   }
 
   function abrirExclusao(pagamento) {
@@ -246,7 +248,7 @@ function Pagamentos() {
 
     const cabecalho = [
       "ID", "Aluno", "Matrícula", "Tipo", "Plano ou produto",
-      "Quantidade", "Valor", "Método", "Data"
+      "Quantidade", "Descrição", "Valor", "Método", "Data"
     ];
 
     const linhas = pagamentosFiltrados.map((pagamento) => {
@@ -260,6 +262,7 @@ function Pagamentos() {
         obterTipoPagamento(pagamento),
         obterNomeOrigem(pagamento, matricula, produto),
         pagamento.quantidade ?? "",
+        pagamento.descricao,
         Number(pagamento.valor ?? 0).toFixed(2),
         pagamento.metodoPagamento ?? pagamento.metodo,
         formatarData(pagamento.dataPagamento),
@@ -365,7 +368,7 @@ function Pagamentos() {
               type="search"
               value={busca}
               onChange={(event) => setBusca(event.target.value)}
-              placeholder="Buscar por aluno, produto ou plano..."
+              placeholder="Buscar por aluno, produto, plano ou descrição..."
             />
           </div>
 
@@ -438,6 +441,7 @@ function Pagamentos() {
               <tr>
                 <th>Aluno</th>
                 <th>Plano / produto</th>
+                <th>Descrição</th>
                 <th>Quantidade</th>
                 <th>Valor</th>
                 <th>Método</th>
@@ -495,6 +499,8 @@ function Pagamentos() {
                         </div>
                       </td>
 
+                      <td>{pagamento.descricao || "-"}</td>
+
                       <td>
                         {tipo === "produto"
                           ? `${pagamento.quantidade ?? 1} un.`
@@ -531,12 +537,13 @@ function Pagamentos() {
                           >
                             <Edit3 size={17} />
                           </button>
+
                           <button
                             className="danger"
                             type="button"
                             onClick={() => abrirExclusao(pagamento)}
                           >
-                            <Trash2 size={16} />
+                            <Trash2 size={17} />
                           </button>
                         </div>
                       </td>
@@ -598,6 +605,7 @@ function Pagamentos() {
           pagamento={pagamentoSelecionado}
           matriculas={matriculas}
           produtos={produtos}
+          planos={planos}
           modo={modoModal}
           fechar={fecharModal}
           salvar={salvarPagamento}

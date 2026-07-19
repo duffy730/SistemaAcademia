@@ -24,6 +24,18 @@ public interface IMatriculaService
 public class MatriculaService : IMatriculaService
 {
     private readonly IMatriculaRepository _matriculaRepository;
+    private readonly IPlanoRepository _planoRepository;
+    private readonly IPagamentoRepository _pagamentoRepository;
+
+    public MatriculaService(
+        IMatriculaRepository matriculaRepository,
+        IPlanoRepository planoRepository,
+        IPagamentoRepository pagamentoRepository)
+    {
+        _matriculaRepository = matriculaRepository;
+        _planoRepository = planoRepository;
+        _pagamentoRepository = pagamentoRepository;
+    }
 
     public MatriculaService(IMatriculaRepository matriculaRepository)
     {
@@ -32,16 +44,51 @@ public class MatriculaService : IMatriculaService
 
     public List<MatriculaResponseDTO> listaMatricula()
     {
-        var matriculas = _matriculaRepository.Listar();
-        return matriculas.Select(matricula => new MatriculaResponseDTO
-        {
-            Id = matricula.Id,
-            AlunoId = matricula.AlunoId,
-            Aluno = matricula.Aluno.Nome,
-            Plano = matricula.Plano.Nome,
-            Ativa = matricula.Ativa,
-            Descricao = matricula.Descricao
-        }).ToList();
+        var matriculas =
+        _matriculaRepository.Listar();
+
+        return matriculas
+            .Select(matricula =>
+            {
+                var temPagamentoPendente =
+                    _pagamentoRepository
+                        .ExistePagamentoPendente(
+                            matricula.Id
+                        );
+
+                var status = !matricula.Ativa
+                    ? "Inativa"
+                    : temPagamentoPendente
+                        ? "Pendente"
+                        : "Ativa";
+
+                return new MatriculaResponseDTO
+                {
+                    Id = matricula.Id,
+
+                    AlunoId = matricula.AlunoId,
+
+                    PlanoId = matricula.PlanoId,
+
+                    Aluno =
+                        matricula.Aluno?.Nome ??
+                        "Aluno não encontrado",
+
+                    Plano =
+                        matricula.Plano?.Nome,
+
+                    Ativa = matricula.Ativa,
+
+                    Descricao =
+                        matricula.Descricao,
+
+                    TemPagamentoPendente =
+                        temPagamentoPendente,
+
+                    Status = status
+                };
+            })
+            .ToList();
     }
 
     public MatriculaResponseDTO BuscarPorId(int id)
@@ -77,6 +124,37 @@ public class MatriculaService : IMatriculaService
             Descricao = $"Matrícula ativada em {DateTime.Now:dd/MM/yyyy}"
         };
         _matriculaRepository.Adicionar(matricula);
+
+        var plano = _planoRepository.BuscarPorId(dto.PlanoId);
+
+        if (plano == null)
+        {
+            throw new Exception("Plano não encontrado.");
+        }
+
+        var pagamentoPendente = new PagamentoEntitie
+        {
+            MatriculaId = matricula.Id,
+            ProdutoId = null,
+            Quantidade = 0,
+
+            Descricao =
+                $"Mensalidade pendente - {plano.Nome}",
+
+            Valor = plano.Valor,
+
+            MetodoPagamento = "Não informado",
+
+            DataPagamento = DateOnly.FromDateTime(
+                DateTime.Today
+            ),
+
+            Status = "Pendente"
+        };
+
+        _pagamentoRepository.AdicionarComBaixaEstoque(
+            pagamentoPendente
+        );
         return true;
     }
 
