@@ -620,7 +620,7 @@ function Planos() {
                               type="button"
                               onClick={() => abrirExclusao(plano)}
                             >
-                              <Trash2 size={16} />
+                              <Trash2 size={17} />
                             </button>
                           </div>
                         </div>

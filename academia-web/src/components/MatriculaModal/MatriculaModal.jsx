@@ -19,13 +19,14 @@ const FORMULARIO_INICIAL = {
 
 function MatriculaModal({
   matricula,
+  matriculas,
   alunos,
   planos,
   modo,
   fechar,
   salvar,
   salvando,
-}) {
+  }) {
   const [formulario, setFormulario] = useState(FORMULARIO_INICIAL);
   const [erro, setErro] = useState("");
 
@@ -196,6 +197,35 @@ function MatriculaModal({
     }
   }
 
+  const alunosDisponiveis = useMemo(() => {
+  const alunosComMatricula = new Set(
+    matriculas
+      .filter((item) => {
+        // Durante a edição, ignora a própria matrícula atual.
+        if (
+          matricula &&
+          Number(item.id) === Number(matricula.id)
+        ) {
+          return false;
+        }
+
+        return true;
+      })
+      .map((item) =>
+        Number(
+          item.alunoId ??
+          item.aluno?.id
+        )
+      )
+      .filter((id) => Number.isInteger(id) && id > 0)
+  );
+
+  return alunos.filter(
+    (aluno) =>
+      !alunosComMatricula.has(Number(aluno.id))
+  );
+}, [alunos, matriculas, matricula]);
+
   return (
     <div className="matricula-modal-overlay" onMouseDown={fechar}>
       <div
@@ -252,12 +282,20 @@ function MatriculaModal({
                   onChange={alterarCampo}
                   disabled={somenteLeitura || salvando}
                 >
-                  <option value="">Selecione o aluno</option>
+                  <option value="" disabled>Selecione o aluno</option>
+                  
+                  {alunosDisponiveis.length === 0 && (
+                    <option value="" disabled>
+                      Todos os alunos já possuem matrícula
+                    </option>
+                  )}
 
-                  {alunos.map((aluno) => (
-                    <option key={aluno.id} value={aluno.id}>
-                      {aluno.nome}
-                      {aluno.email ? ` — ${aluno.email}` : ""}
+                  {alunosDisponiveis.map((aluno) => (
+                    <option
+                      key={aluno.id}
+                      value={aluno.id}
+                    >
+                      {aluno.nome} — {aluno.email}
                     </option>
                   ))}
                 </select>

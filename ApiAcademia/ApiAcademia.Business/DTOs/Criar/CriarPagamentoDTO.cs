@@ -23,4 +23,6 @@ public class CriarPagamentoDTO
         string.Empty;
 
     public DateTime DataPagamento { get; set; }
+
+    public string Status { get; set; } = "Pendente";
 }

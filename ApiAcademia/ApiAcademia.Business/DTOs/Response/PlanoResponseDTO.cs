@@ -14,4 +14,7 @@ public class PlanoResponseDTO
     public int DuracaoDias { get; set; }
     public string Descricao { get; set; }
     public int MatriculasAtivas { get; set; }
+    public int PagamentosPendentes { get; set; }
+    public string StatusPagamento { get; set; } =
+        string.Empty;
 }

@@ -12,6 +12,8 @@ public class MatriculaResponseDTO
 
     public int AlunoId { get; set; }
 
+    public int? PlanoId { get; set; }
+
     public string Aluno { get; set; }
 
     public string Plano { get; set; }
@@ -19,4 +21,9 @@ public class MatriculaResponseDTO
     public bool Ativa { get; set; }
 
     public string Descricao { get; set; }
+
+    public string Status { get; set; } =
+    string.Empty;
+
+    public bool TemPagamentoPendente { get; set; }
 }

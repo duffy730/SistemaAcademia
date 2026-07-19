@@ -113,12 +113,18 @@
 
 .matricula-modal-field select {
   width: 100%;
+  min-height: 42px;
   border: 0;
   outline: 0;
+
   color: #edf3f8;
-  background: transparent;
+  background-color: #0b1521;
+
   font: inherit;
   font-size: 14px;
+  cursor: pointer;
+
+  color-scheme: dark;
 }
 
 .matricula-modal-plan-summary {
@@ -284,4 +290,18 @@
   .matricula-modal-footer button {
     width: 100%;
   }
+}
+
+.matricula-modal-field select option {
+  color: #edf3f8;
+  background-color: #0b1521;
+}
+
+.matricula-modal-field select option:disabled {
+  color: #64748b;
+}
+
+.matricula-modal-field select option:checked {
+  color: #ffffff;
+  background-color: #1672d4;
 }

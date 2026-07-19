@@ -101,14 +101,11 @@ function Matriculas() {
   const matriculasFiltradas = useMemo(() => {
     const termo = busca.trim().toLowerCase();
 
-    const planoSelecionado = planos.find(
-      (plano) => String(plano.id) === planoFiltro
-    );
-
     return matriculas.filter((matricula) => {
       const aluno = obterAluno(matricula, alunos);
       const plano = obterPlano(matricula, planos);
       const ativa = matricula.ativa ?? matricula.ativo ?? false;
+      const statusMatricula = obterStatusMatricula(matricula);
 
       const textoBusca = [
         formatarNumeroMatricula(matricula.id),
@@ -124,36 +121,22 @@ function Matriculas() {
 
       const correspondeStatus =
         status === "todos" ||
-        (status === "ativas" && ativa) ||
-        (status === "nao-ativas" && !ativa);
+        (
+          status === "ativas" &&
+          statusMatricula.chave === "active"
+        ) ||
+        (
+          status === "pendentes" &&
+          statusMatricula.chave === "pending"
+        ) ||
+        (
+          status === "nao-ativas" &&
+          statusMatricula.chave === "inactive"
+        );
 
-      const planoIdMatricula =
-      matricula.planoId ??
-      plano?.id ??
-      null;
-
-    const nomePlanoMatricula = obterNomePlano(
-      matricula,
-      plano
-    )
-      .trim()
-      .toLowerCase();
-
-    const nomePlanoSelecionado =
-      planoSelecionado?.nome
-        ?.trim()
-        .toLowerCase() ?? "";
-
-    const correspondePlano =
-      planoFiltro === "todos" ||
-      (
-        planoIdMatricula !== null &&
-        String(planoIdMatricula) === planoFiltro
-      ) ||
-      (
-        nomePlanoSelecionado &&
-        nomePlanoMatricula === nomePlanoSelecionado
-      );
+      const planoId = String(matricula.planoId ?? plano?.id ?? "");
+      const correspondePlano =
+        planoFiltro === "todos" || planoFiltro === planoId;
 
       const inicio = obterDataInicio(matricula);
 
@@ -308,35 +291,41 @@ function Matriculas() {
   }
 
   async function confirmarAtivacao() {
-  if (!matriculaParaAtivar) {
-    return;
+    if (!matriculaParaAtivar) return;
+
+    if (!planoAtivacaoId) {
+      setErro("Selecione um plano para ativar a matrícula.");
+      return;
+    }
+
+    try {
+      setAtivando(true);
+      setErro("");
+
+      await api.patch(
+        ROTAS.ativarMatricula(matriculaParaAtivar.id),
+        {
+          planoId: Number(planoAtivacaoId),
+        }
+      );
+
+      setMatriculaParaAtivar(null);
+      setPlanoAtivacaoId("");
+      await carregarDados();
+    } catch (error) {
+      console.error(
+        "Erro ao ativar matrícula:",
+        error.response?.data ?? error.message
+      );
+
+      setErro(
+        obterMensagemErro(error) ||
+          "Não foi possível ativar a matrícula."
+      );
+    } finally {
+      setAtivando(false);
+    }
   }
-
-  try {
-    setAtivando(true);
-    setErro("");
-
-    await api.put(
-      ROTAS.ativarMatricula(matriculaParaAtivar.id)
-    );
-
-    setMatriculaParaAtivar(null);
-
-    await carregarDados();
-  } catch (error) {
-    console.error(
-      "Erro ao ativar matrícula:",
-      error.response?.data ?? error.message
-    );
-
-    setErro(
-      obterMensagemErro(error) ||
-        "Não foi possível ativar a matrícula."
-    );
-  } finally {
-    setAtivando(false);
-  }
-}
 
   function abrirExclusao(matricula) {
     setMatriculaParaExcluir(matricula);
@@ -417,7 +406,7 @@ function Matriculas() {
         obterNomePlano(matricula, plano),
         formatarData(inicio),
         formatarData(termino),
-        matricula.ativa ?? matricula.ativo ?? false ? "Ativa" : "Não ativa",
+        obterStatusMatricula(matricula).texto,
       ];
     });
 
@@ -538,6 +527,7 @@ function Matriculas() {
               options={[
                 ["todos", "Todos os status"],
                 ["ativas", "Ativas"],
+                ["pendentes", "Pendentes"],
                 ["nao-ativas", "Não ativas"],
               ]}
             />
@@ -627,6 +617,7 @@ function Matriculas() {
                   const inicio = obterDataInicio(matricula);
                   const termino = obterDataTermino(matricula, plano);
                   const ativa = matricula.ativa ?? matricula.ativo ?? false;
+                  const statusMatricula = obterStatusMatricula(matricula);
                   const nomePlano = obterNomePlano(matricula, plano);
                   const tema = obterTemaPlano(nomePlano, index);
 
@@ -667,9 +658,7 @@ function Matriculas() {
                         </div>
                       </td>
 
-                      <td>
-                        <strong>{formatarData(inicio)}</strong>
-                      </td>
+                      <td>{formatarData(inicio)}</td>
 
                       <td>
                         <div className="matricula-termino">
@@ -680,11 +669,9 @@ function Matriculas() {
 
                       <td>
                         <span
-                          className={`matricula-status ${
-                            ativa ? "active" : "inactive"
-                          }`}
+                          className={`matricula-status ${statusMatricula.chave}`}
                         >
-                          {ativa ? "Ativa" : "Não ativa"}
+                          {statusMatricula.texto}
                         </span>
                       </td>
 
@@ -813,6 +800,7 @@ function Matriculas() {
           fechar={fecharModal}
           salvar={salvarMatricula}
           salvando={salvando}
+          matriculas={matriculas}
         />
       )}
 
@@ -907,6 +895,26 @@ function Matriculas() {
               .
             </p>
 
+            <label className="matricula-activate-field">
+              <span>Plano</span>
+
+              <select
+                value={planoAtivacaoId}
+                onChange={(event) =>
+                  setPlanoAtivacaoId(event.target.value)
+                }
+                disabled={ativando}
+              >
+                <option value="">Selecione um plano</option>
+
+                {planos.map((plano) => (
+                  <option key={plano.id} value={plano.id}>
+                    {plano.nome}
+                  </option>
+                ))}
+              </select>
+            </label>
+
             <div className="matricula-delete-actions">
               <button
                 type="button"
@@ -921,7 +929,7 @@ function Matriculas() {
                 type="button"
                 className="activate"
                 onClick={confirmarAtivacao}
-                disabled={ativando}
+                disabled={ativando || !planoAtivacaoId}
               >
                 <CheckCircle2 size={17} />
 
@@ -1039,46 +1047,13 @@ function obterAluno(matricula, alunos) {
 }
 
 function obterPlano(matricula, planos) {
-  if (
-    matricula.plano &&
-    typeof matricula.plano === "object"
-  ) {
+  if (matricula.plano && typeof matricula.plano === "object") {
     return matricula.plano;
   }
 
-  if (matricula.planoId !== null && matricula.planoId !== undefined) {
-    const planoPorId = planos.find(
-      (plano) =>
-        Number(plano.id) === Number(matricula.planoId)
-    );
-
-    if (planoPorId) {
-      return planoPorId;
-    }
-  }
-
-  const nomePlanoMatricula =
-    typeof matricula.plano === "string"
-      ? matricula.plano
-      : matricula.planoNome || matricula.nomePlano;
-
-  if (!nomePlanoMatricula) {
-    return null;
-  }
-
   return planos.find(
-    (plano) =>
-      normalizarTexto(plano.nome) ===
-      normalizarTexto(nomePlanoMatricula)
+    (plano) => Number(plano.id) === Number(matricula.planoId)
   );
-}
-
-function normalizarTexto(valor) {
-  return String(valor ?? "")
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
 }
 
 function obterNomeAluno(matricula, aluno) {
@@ -1112,6 +1087,54 @@ function obterNomePlano(matricula, plano) {
   );
 }
 
+function obterStatusMatricula(matricula) {
+  const ativa =
+    matricula.ativa ??
+    matricula.ativo ??
+    false;
+
+  const statusApi = String(
+    matricula.status ?? ""
+  )
+    .trim()
+    .toLowerCase();
+
+  const temPagamentoPendente =
+    matricula.temPagamentoPendente === true ||
+    String(matricula.temPagamentoPendente)
+      .trim()
+      .toLowerCase() === "true";
+
+  if (
+    !ativa ||
+    statusApi === "inativa" ||
+    statusApi === "não ativa" ||
+    statusApi === "nao ativa" ||
+    statusApi === "inactive"
+  ) {
+    return {
+      chave: "inactive",
+      texto: "Não ativa",
+    };
+  }
+
+  if (
+    temPagamentoPendente ||
+    statusApi === "pendente" ||
+    statusApi === "pending"
+  ) {
+    return {
+      chave: "pending",
+      texto: "Pendente",
+    };
+  }
+
+  return {
+    chave: "active",
+    texto: "Ativa",
+  };
+}
+
 function obterDataInicio(matricula) {
   const valor =
     matricula.dataInicio ||
@@ -1133,38 +1156,23 @@ function obterDataInicio(matricula) {
 }
 
 function obterDataTermino(matricula, plano) {
-  const dataRecebida =
+  const valor =
     matricula.dataTermino ||
     matricula.dataFim ||
     matricula.dataVencimento;
 
-  if (dataRecebida) {
-    return converterParaData(dataRecebida);
-  }
+  if (valor) return converterParaData(valor);
 
-  const dataInicio = obterDataInicio(matricula);
-
+  const inicio = obterDataInicio(matricula);
   const duracaoDias = Number(
-    matricula.duracaoDias ??
-    plano?.duracaoDias ??
-    0
+    plano?.duracaoDias ?? matricula.duracaoDias ?? 0
   );
 
-  if (
-    !dataInicio ||
-    Number.isNaN(dataInicio.getTime()) ||
-    duracaoDias <= 0
-  ) {
-    return null;
-  }
+  if (!inicio || !duracaoDias) return null;
 
-  const dataTermino = new Date(dataInicio);
-
-  dataTermino.setDate(
-    dataTermino.getDate() + duracaoDias
-  );
-
-  return dataTermino;
+  const termino = new Date(inicio);
+  termino.setDate(termino.getDate() + duracaoDias);
+  return termino;
 }
 
 function converterParaData(valor) {

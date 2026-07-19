@@ -129,7 +129,7 @@ function AlunoModal({ fechar, aoSalvar, aluno }) {
               />
             </label>
 
-            <label>
+            <label className="aluno-form-bar">
               Peso
               <input
                 type="number"
@@ -142,7 +142,7 @@ function AlunoModal({ fechar, aoSalvar, aluno }) {
               />
             </label>
 
-            <label>
+            <label className="aluno-form-bar">
               Altura
               <input
                 type="number"

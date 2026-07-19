@@ -29,6 +29,7 @@ function PagamentoModal({
   pagamento,
   matriculas,
   produtos,
+  planos = [],
   modo,
   fechar,
   salvar,
@@ -99,6 +100,85 @@ function PagamentoModal({
     [matriculas, formulario.matriculaId]
   );
 
+  const matriculasDisponiveis = useMemo(() => {
+  const matriculaAtualId = String(
+    pagamento?.matriculaId ??
+      pagamento?.matricula?.id ??
+      ""
+  );
+
+  return matriculas.filter((matricula) => {
+    /*
+     * Durante a edição, mantém visível a matrícula
+     * que já estava vinculada ao pagamento.
+     */
+    if (
+      editando &&
+      matriculaAtualId &&
+      String(matricula.id) === matriculaAtualId
+    ) {
+      return true;
+    }
+
+    /*
+     * Pagamento de produto continua mostrando
+     * todas as matrículas.
+     */
+    if (formulario.tipoPagamento !== "plano") {
+      return true;
+    }
+
+    const ativa =
+      matricula.ativa ??
+      matricula.ativo ??
+      false;
+
+    const statusApi = String(
+      matricula.status ?? ""
+    )
+      .trim()
+      .toLowerCase();
+
+    const temPagamentoPendente =
+      matricula.temPagamentoPendente === true ||
+      String(matricula.temPagamentoPendente)
+        .trim()
+        .toLowerCase() === "true";
+
+    return (
+      ativa &&
+      (
+        temPagamentoPendente ||
+        statusApi === "pendente"
+      )
+    );
+  });
+}, [
+  matriculas,
+  formulario.tipoPagamento,
+  pagamento,
+  editando,
+]);
+
+  const planoSelecionado = useMemo(
+    () =>
+      obterPlanoDaMatricula(
+        matriculaSelecionada,
+        planos
+      ),
+    [matriculaSelecionada, planos]
+  );
+
+  const valorPlano = useMemo(
+    () =>
+      Number(
+        planoSelecionado?.valor ??
+          planoSelecionado?.preco ??
+          0
+      ),
+    [planoSelecionado]
+  );
+
   const valorProduto = useMemo(() => {
     if (!produtoSelecionado) return 0;
 
@@ -119,6 +199,7 @@ function PagamentoModal({
         return {
           ...estadoAtual,
           tipoPagamento: value,
+          matriculaId: "",
           produtoId: "",
           quantidade: 1,
           valor: "",
@@ -159,9 +240,22 @@ function PagamentoModal({
       return;
     }
 
+    if (!pagamentoDeProduto) {
+      const matriculaPendente = matriculasDisponiveis.find(
+        (matricula) => Number(matricula.id) === matriculaId
+      );
+
+      if (!matriculaPendente) {
+        setErro(
+          "Selecione uma matrícula com pagamento pendente."
+        );
+        return;
+      }
+    }
+
     let produtoId = null;
     let quantidade = 0;
-    let valor = Number(formulario.valor);
+    let valor = pagamentoDeProduto ? 0 : valorPlano;
 
     if (pagamentoDeProduto) {
       produtoId = Number(formulario.produtoId);
@@ -202,8 +296,17 @@ function PagamentoModal({
         return;
       }
     } else {
+      if (!planoSelecionado) {
+        setErro(
+          "A matrícula selecionada não possui um plano associado."
+        );
+        return;
+      }
+
       if (!Number.isFinite(valor) || valor <= 0) {
-        setErro("Informe um valor maior que zero.");
+        setErro(
+          "O plano associado à matrícula possui um valor inválido."
+        );
         return;
       }
     }
@@ -217,7 +320,8 @@ function PagamentoModal({
         gerarDescricaoPadrao(
           formulario.tipoPagamento,
           matriculaSelecionada,
-          produtoSelecionado
+          produtoSelecionado,
+          planoSelecionado
         ),
       valor,
       metodoPagamento: formulario.metodoPagamento,
@@ -351,7 +455,14 @@ function PagamentoModal({
                     Selecione a matrícula
                   </option>
 
-                  {matriculas.map((matricula) => (
+                  {formulario.tipoPagamento === "plano" &&
+                    matriculasDisponiveis.length === 0 && (
+                      <option value="" disabled>
+                        Nenhuma matrícula com pagamento pendente
+                      </option>
+                    )}
+
+                  {matriculasDisponiveis.map((matricula) => (
                     <option
                       key={matricula.id}
                       value={matricula.id}
@@ -461,24 +572,36 @@ function PagamentoModal({
                 )}
               </>
             ) : (
-              <label className="pagamento-modal-field">
-                <span>Valor do pagamento</span>
+              <div
+                className={`pagamento-plan-summary ${
+                  matriculaSelecionada && !planoSelecionado
+                    ? "warning"
+                    : ""
+                }`}
+              >
+                <WalletCards size={21} />
 
                 <div>
-                  <WalletCards size={18} />
+                  <span>Plano associado à matrícula</span>
 
-                  <input
-                    type="number"
-                    name="valor"
-                    value={formulario.valor}
-                    onChange={alterarCampo}
-                    min="0.01"
-                    step="0.01"
-                    placeholder="0,00"
-                    disabled={somenteLeitura || salvando}
-                  />
+                  <strong>
+                    {!matriculaSelecionada
+                      ? "Selecione uma matrícula"
+                      : planoSelecionado?.nome ||
+                        "Nenhum plano associado"}
+                  </strong>
+
+                  <small>
+                    {!matriculaSelecionada
+                      ? "O plano e o valor serão preenchidos automaticamente."
+                      : planoSelecionado
+                      ? `Valor do plano: ${formatarMoeda(
+                          valorPlano
+                        )}`
+                      : "Esta matrícula não possui um plano válido."}
+                  </small>
                 </div>
-              </label>
+              </div>
             )}
 
             <div className="pagamento-modal-grid">
@@ -564,7 +687,12 @@ function obterNomeAlunoMatricula(matricula) {
   );
 }
 
-function gerarDescricaoPadrao(tipo, matricula, produto) {
+function gerarDescricaoPadrao(
+  tipo,
+  matricula,
+  produto,
+  planoSelecionado
+) {
   if (tipo === "produto") {
     return produto
       ? `Venda de ${produto.nome}`
@@ -572,14 +700,73 @@ function gerarDescricaoPadrao(tipo, matricula, produto) {
   }
 
   const nomePlano =
-    typeof matricula?.plano === "string"
+    planoSelecionado?.nome ||
+    (typeof matricula?.plano === "string"
       ? matricula.plano
       : matricula?.plano?.nome ||
-        matricula?.planoNome;
+        matricula?.planoNome);
 
   return nomePlano
     ? `Pagamento do ${nomePlano}`
     : "Pagamento de plano";
+}
+
+function obterPlanoDaMatricula(matricula, planos) {
+  if (!matricula) return null;
+
+  if (
+    matricula.plano &&
+    typeof matricula.plano === "object"
+  ) {
+    return matricula.plano;
+  }
+
+  const planoId =
+    matricula.planoId ??
+    matricula.idPlano ??
+    matricula.plano?.id;
+
+  if (planoId !== null && planoId !== undefined) {
+    const planoPorId = planos.find(
+      (plano) => Number(plano.id) === Number(planoId)
+    );
+
+    if (planoPorId) return planoPorId;
+  }
+
+  const nomePlano =
+    typeof matricula.plano === "string"
+      ? matricula.plano
+      : matricula.planoNome ||
+        matricula.nomePlano;
+
+  if (nomePlano) {
+    const planoPorNome = planos.find(
+      (plano) =>
+        normalizarTexto(plano.nome) ===
+        normalizarTexto(nomePlano)
+    );
+
+    if (planoPorNome) return planoPorNome;
+
+    return {
+      nome: nomePlano,
+      valor:
+        matricula.planoValor ??
+        matricula.valorPlano ??
+        0,
+    };
+  }
+
+  return null;
+}
+
+function normalizarTexto(valor) {
+  return String(valor ?? "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 }
 
 function obterDataAtual() {

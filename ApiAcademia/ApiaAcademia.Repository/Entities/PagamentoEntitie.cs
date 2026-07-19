@@ -22,5 +22,6 @@ public class PagamentoEntitie
 
     public int? ProdutoId { get; set; }
     public ProdutosEntitie? Produto { get; set; }
+    public string Status { get; set; } = "Pendente";
     public int Quantidade { get; set; }
 }

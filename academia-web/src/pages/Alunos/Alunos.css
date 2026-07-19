@@ -644,3 +644,27 @@
     width: 100%;
   }
 }
+
+/* Remove as setas dos inputs numéricos no Chrome, Edge e Safari */
+.aluno-form-bar input[type="number"]::-webkit-inner-spin-button,
+.aluno-extra-filters input[type="number"]::-webkit-inner-spin-button,
+.aluno-modal-field input[type="number"]::-webkit-inner-spin-button,
+.aluno-modal-field input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Remove as setas no Firefox */
+.aluno-form-bar input[type="number"],
+.aluno-modal-field input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.aluno-form-bar input[type="number"],
+.aluno-modal-field input[type="number"] {
+  color: #edf3f8;
+  background: transparent;
+  caret-color: #4ade80;
+}
