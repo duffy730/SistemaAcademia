@@ -5,6 +5,7 @@ import {
   MoreHorizontal, Plus, Search, Trash2, WalletCards, X
 } from "lucide-react";
 
+import { useSearchParams } from "react-router-dom";
 import api from "../../services/api";
 import PagamentoModal from "../../components/PagamentoModal/PagamentoModal";
 import "./Pagamentos.css";
@@ -45,6 +46,20 @@ function Pagamentos() {
   const [menuAberto, setMenuAberto] = useState(null);
   const [pagamentoParaExcluir, setPagamentoParaExcluir] = useState(null);
   const [excluindo, setExcluindo] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get("acao") !== "novo") return;
+
+    setModalAberto(true);
+
+    const novosParametros = new URLSearchParams(searchParams);
+    novosParametros.delete("acao");
+
+    setSearchParams(novosParametros, {
+      replace: true,
+    });
+  }, [searchParams, setSearchParams]);
 
   async function carregarDados() {
     try {
@@ -150,7 +165,7 @@ function Pagamentos() {
   function abrirCadastro() {
     setPagamentoSelecionado(null);
     setModoModal("criar");
-    setModalAberto(true);
+    abrirCadastro();
   }
 
   function abrirVisualizacao(pagamento) {

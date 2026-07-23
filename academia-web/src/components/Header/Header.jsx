@@ -29,16 +29,23 @@ function Header() {
         titulo: "Pagamentos",
         descricao: "Controle os pagamentos"
     },
+    "/nutri": {
+        titulo: "Nutricionista Virtual",
+        descricao: "Gerencie a saúde dos usuários do sistema"
+    },
     "/usuarios": {
         titulo: "Usuários",
         descricao: "Gerencie os usuários do sistema"
+    },
+    "/config": {
+      titulo: "Configurações",
     }
   };
 
   const paginaAtual =
     paginas[location.pathname] ??
     {
-        titulo: "AcademiaPro",
+        titulo: "GymPilot",
         descricao: ""
     };
 
@@ -46,19 +53,6 @@ function Header() {
     <header className="dashboard-header">
       <div>
         <h2>{paginaAtual.titulo}</h2>
-      </div>
-
-      <div className="header-search">
-        <input
-          type="search"
-          placeholder="Buscar aluno, plano ou produto..."
-        />
-      </div>
-
-      <div className="header-notification">
-        <button type="button" className="notification-button">
-          🔔
-        </button>
       </div>
     </header>
   );

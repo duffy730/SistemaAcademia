@@ -81,6 +81,43 @@ namespace ApiAcademia.Repository.Migrations
                     b.ToTable("Matriculas");
                 });
 
+            modelBuilder.Entity("ApiAcademia.Repository.Entities.MedidaCorporalEntitie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal?>("Braco")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<decimal?>("Cintura")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal?>("Peito")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<decimal>("Peso")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<int>("PlanoNutricaoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlanoNutricaoId");
+
+                    b.ToTable("MedidasCorporais");
+                });
+
             modelBuilder.Entity("ApiAcademia.Repository.Entities.PagamentoEntitie", b =>
                 {
                     b.Property<int>("Id")
@@ -152,6 +189,54 @@ namespace ApiAcademia.Repository.Migrations
                     b.ToTable("Planos");
                 });
 
+            modelBuilder.Entity("ApiAcademia.Repository.Entities.PlanoNutricaoEntitie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("AguaMetaLitros")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<int>("AlunoId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("CaloriasMeta")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("CarboidratosMeta")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<DateTime>("DataInicio")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("GordurasMeta")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<string>("Observacoes")
+                        .IsRequired()
+                        .HasMaxLength(4000)
+                        .HasColumnType("nvarchar(4000)");
+
+                    b.Property<decimal>("ProteinasMeta")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlunoId");
+
+                    b.ToTable("PlanosNutricao");
+                });
+
             modelBuilder.Entity("ApiAcademia.Repository.Entities.ProdutosEntitie", b =>
                 {
                     b.Property<int>("Id")
@@ -177,6 +262,78 @@ namespace ApiAcademia.Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Produtos");
+                });
+
+            modelBuilder.Entity("ApiAcademia.Repository.Entities.RefeicaoNutricaoEntitie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Alimentos")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<int>("Calorias")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Horario")
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("Ordem")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PlanoNutricaoId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Quantidades")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlanoNutricaoId");
+
+                    b.ToTable("RefeicoesNutricao");
+                });
+
+            modelBuilder.Entity("ApiAcademia.Repository.Entities.SuplementoNutricaoEntitie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Dosagem")
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("nvarchar(120)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("nvarchar(120)");
+
+                    b.Property<int>("PlanoNutricaoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlanoNutricaoId");
+
+                    b.ToTable("SuplementosNutricao");
                 });
 
             modelBuilder.Entity("ApiAcademia.Repository.Entities.UserEntitie", b =>
@@ -225,6 +382,17 @@ namespace ApiAcademia.Repository.Migrations
                     b.Navigation("Plano");
                 });
 
+            modelBuilder.Entity("ApiAcademia.Repository.Entities.MedidaCorporalEntitie", b =>
+                {
+                    b.HasOne("ApiAcademia.Repository.Entities.PlanoNutricaoEntitie", "PlanoNutricao")
+                        .WithMany("Medidas")
+                        .HasForeignKey("PlanoNutricaoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PlanoNutricao");
+                });
+
             modelBuilder.Entity("ApiAcademia.Repository.Entities.PagamentoEntitie", b =>
                 {
                     b.HasOne("ApiAcademia.Repository.Entities.ProdutosEntitie", "Produto")
@@ -234,9 +402,51 @@ namespace ApiAcademia.Repository.Migrations
                     b.Navigation("Produto");
                 });
 
+            modelBuilder.Entity("ApiAcademia.Repository.Entities.PlanoNutricaoEntitie", b =>
+                {
+                    b.HasOne("ApiAcademia.Repository.Entities.AlunoEntitie", "Aluno")
+                        .WithMany()
+                        .HasForeignKey("AlunoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Aluno");
+                });
+
+            modelBuilder.Entity("ApiAcademia.Repository.Entities.RefeicaoNutricaoEntitie", b =>
+                {
+                    b.HasOne("ApiAcademia.Repository.Entities.PlanoNutricaoEntitie", "PlanoNutricao")
+                        .WithMany("Refeicoes")
+                        .HasForeignKey("PlanoNutricaoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PlanoNutricao");
+                });
+
+            modelBuilder.Entity("ApiAcademia.Repository.Entities.SuplementoNutricaoEntitie", b =>
+                {
+                    b.HasOne("ApiAcademia.Repository.Entities.PlanoNutricaoEntitie", "PlanoNutricao")
+                        .WithMany("Suplementos")
+                        .HasForeignKey("PlanoNutricaoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PlanoNutricao");
+                });
+
             modelBuilder.Entity("ApiAcademia.Repository.Entities.PlanoEntitie", b =>
                 {
                     b.Navigation("Matriculas");
+                });
+
+            modelBuilder.Entity("ApiAcademia.Repository.Entities.PlanoNutricaoEntitie", b =>
+                {
+                    b.Navigation("Medidas");
+
+                    b.Navigation("Refeicoes");
+
+                    b.Navigation("Suplementos");
                 });
 #pragma warning restore 612, 618
         }

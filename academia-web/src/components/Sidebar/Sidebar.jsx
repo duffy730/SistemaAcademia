@@ -11,6 +11,8 @@ import iconProdutos from '../../assets/icons/produtos.png'
 import iconMatriculas from '../../assets/icons/matriculas.png'
 import iconPagamentos from '../../assets/icons/pagamentos.png'
 import iconUser from '../../assets/icons/usuario.png'
+import iconConfig from '../../assets/icons/config.png'
+import iconNutri from '../../assets/icons/plant.png'
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -25,7 +27,7 @@ function Sidebar() {
     <aside className="sidebar">
       <div className="sidebar-logo">
         <img className="sidebar-logo-icon" src={iconPeso} alt="icon" />
-        <h1 className="sidebar-logo-title">Academia<span className="sidebar-logo-title-pro">Pro</span></h1>
+        <h1 className="sidebar-logo-title">Gym<span className="sidebar-logo-title-pro">Pilot</span></h1>
       </div>
 
       <nav className="sidebar-nav">
@@ -61,6 +63,11 @@ function Sidebar() {
         <NavLink to="/pagamentos" className="sections">
           <img className="icon" src={iconPagamentos} alt="icon" />
           Pagamentos
+        </NavLink>
+
+        <NavLink to="/nutri" className="sections">
+          <img className="icon" src={iconNutri} alt="icon" />
+          Nutri. Virtual
         </NavLink>
 
         <span className="sidebar-section">ADMINISTRAÇÃO</span>

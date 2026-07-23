@@ -12,14 +12,19 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using ApiAcademia.Business.DTOs.Atualizar;
 
 namespace ApiAcademia.Business.Services;
 
 public interface IUserService
 {
+    List<UserResponseDTO> listaUser();
     void Criar(CriarUserDTO dto);
     string Login(LoginDTO dto);
-    UserEntitie BuscaPorEmail(string email);
+    UserEntitie BuscarPorEmail(string email);
+    LoginDTO BuscarPorId(int id);
+    bool Atualizar(int id, AtualizarUserDTO dto);
+    bool Remover(int id);
 }
 
 public class UserService : IUserService
@@ -33,6 +38,36 @@ public class UserService : IUserService
     {
         _userRepository = usuarioRepository;
         _configuration = configuration;
+    }
+
+    public LoginDTO BuscarPorId(int id)
+    {
+        var User = _userRepository.BuscarPorId(id);
+
+        if (User == null)
+        {
+            return null;
+        }
+
+        return new LoginDTO
+        {
+            Usuario = User.Usuario,
+            Senha = User.Senha
+        };
+    }
+
+    public List<UserResponseDTO> listaUser()
+    {
+        var usuarios = _userRepository.Listar();
+
+        return usuarios.Select(usuario => new UserResponseDTO
+        {
+            Id = usuario.Id,
+            Nome = usuario.Nome,
+            Usuario = usuario.Usuario,
+            Perfil = usuario.Role.ToString()
+        })
+        .ToList();
     }
 
     public void Criar(CriarUserDTO dto)
@@ -60,6 +95,56 @@ public class UserService : IUserService
         if (usuario == null || usuario.Senha != dto.Senha)
             throw new Exception("Usuário ou senha inválidos");
         return GerarToken(usuario);
+    }
+
+    public bool Atualizar(int id, AtualizarUserDTO dto)
+    {
+        var usuarioExistente =
+            _userRepository.BuscarPorId(id);
+
+        if (usuarioExistente == null)
+        {
+            return false;
+        }
+
+        usuarioExistente.Nome =
+            dto.Nome.Trim();
+
+        /*
+        * Email e usuário são o mesmo campo.
+        */
+        usuarioExistente.Usuario =
+            dto.Email.Trim().ToLower();
+
+        usuarioExistente.Role =
+            dto.Role.ToString();
+
+        /*
+        * Quando dto.Senha for nula ou vazia,
+        * mantém a senha que já está no banco.
+        */
+        if (!string.IsNullOrWhiteSpace(dto.Senha))
+        {
+            usuarioExistente.Senha =
+                dto.Senha;
+        }
+
+        _userRepository.Atualizar(
+            usuarioExistente
+        );
+
+        return true;
+    }
+
+    public bool Remover(int id)
+    {
+        var User = _userRepository.BuscarPorId(id);
+
+        if (User == null)
+            return false;
+
+        _userRepository.Remover(id);
+        return true;
     }
 
     private string ObterRole(int role)
@@ -110,9 +195,9 @@ public class UserService : IUserService
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
-    public UserEntitie BuscaPorEmail(string email)
+    public UserEntitie BuscarPorEmail(string email)
     {
-        var usuario = _userRepository.BuscaPorEmail(email);
+        var usuario = _userRepository.BuscarPorEmail(email);
 
         if (usuario == null)
             throw new Exception("Usuário não encontrado.");

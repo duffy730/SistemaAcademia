@@ -11,7 +11,8 @@ public enum Roles
     User = 0,
     Admin = 1,
     Recepcionista = 2,
-    Nutri = 3
+    Nutri = 3,
+    Aluno = 4
 }
 public class CriarUserDTO
 {

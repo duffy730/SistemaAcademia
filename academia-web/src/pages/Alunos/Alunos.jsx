@@ -15,6 +15,7 @@ import {
   Weight,
 } from "lucide-react";
 
+import { useSearchParams } from "react-router-dom";
 import api from "../../services/api";
 import AlunoModal from "../../components/AlunoModal/AlunoModal";
 import "./Alunos.css";
@@ -34,6 +35,21 @@ function Alunos() {
 
   const [alunoParaExcluir, setAlunoParaExcluir] = useState(null);
   const [excluindo, setExcluindo] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get("acao") !== "novo") return;
+
+    setModalAberto(true);
+
+    const novosParametros = new URLSearchParams(searchParams);
+    novosParametros.delete("acao");
+
+    setSearchParams(novosParametros, {
+      replace: true,
+    });
+  }, [searchParams, setSearchParams]);
+
 
   async function carregarAlunos() {
     try {
@@ -124,7 +140,7 @@ function Alunos() {
 
   function abrirCadastro() {
     setAlunoSelecionado(null);
-    setModalAberto(true);
+    abrirCadastro();
   }
 
   function abrirEdicao(aluno) {

@@ -5,7 +5,7 @@ import "./DashboardLayout.css";
 
 function DashboardLayout() {
   return (
-    <div className="dashboard-layout">
+    <div className="dashboard-shell">
       <Sidebar />
 
       <div className="dashboard-main">

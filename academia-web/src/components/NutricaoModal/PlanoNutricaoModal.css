@@ -1,0 +1,640 @@
+:root {
+  --modal-bg: #081521;
+  --modal-bg-soft: #0c1b29;
+  --modal-card: #0e1e2c;
+  --modal-card-hover: #112434;
+  --modal-input: #07131e;
+  --modal-border: rgba(148, 163, 184, 0.16);
+  --modal-border-strong: rgba(148, 163, 184, 0.24);
+  --modal-text: #f8fafc;
+  --modal-muted: #94a3b8;
+  --modal-primary: #12d889;
+  --modal-primary-soft: rgba(18, 216, 137, 0.12);
+  --modal-danger: #fb7185;
+}
+
+.plano-nutricao-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top, rgba(18, 216, 137, 0.08), transparent 34%),
+    rgba(2, 8, 15, 0.86);
+  backdrop-filter: blur(9px);
+}
+
+.plano-nutricao-modal {
+  position: relative;
+  width: min(1080px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: hidden;
+  border: 1px solid var(--modal-border);
+  border-radius: 18px;
+  color: var(--modal-text);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.018), transparent 52%),
+    var(--modal-bg);
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, 0.58),
+    0 0 0 1px rgba(255, 255, 255, 0.015) inset;
+}
+
+.plano-nutricao-modal::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #08a867, #12d889, #42e9a5);
+}
+
+.plano-nutricao-modal-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--modal-border);
+  background: rgba(10, 23, 34, 0.9);
+}
+
+.plano-nutricao-modal-header > div {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 14px;
+}
+
+.plano-nutricao-modal-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(18, 216, 137, 0.22);
+  border-radius: 13px;
+  color: #55efae;
+  background: linear-gradient(
+    145deg,
+    rgba(18, 216, 137, 0.18),
+    rgba(18, 216, 137, 0.07)
+  );
+  box-shadow: 0 10px 26px rgba(18, 216, 137, 0.11);
+}
+
+.plano-nutricao-modal-header h2 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.plano-nutricao-modal-header p {
+  margin: 0;
+  overflow: hidden;
+  color: var(--modal-muted);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.plano-nutricao-modal-header > button {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: #aab6c2;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.plano-nutricao-modal-header > button:hover {
+  border-color: var(--modal-border-strong);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.plano-nutricao-modal form {
+  display: flex;
+  max-height: calc(100vh - 92px);
+  min-height: 0;
+  flex-direction: column;
+}
+
+.plano-nutricao-modal-body {
+  min-height: 0;
+  overflow-y: auto;
+  padding: 22px;
+  scrollbar-color: rgba(18, 216, 137, 0.4) transparent;
+  scrollbar-width: thin;
+}
+
+.plano-nutricao-modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.plano-nutricao-modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.plano-nutricao-modal-body::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: rgba(18, 216, 137, 0.38);
+  background-clip: padding-box;
+}
+
+.plano-nutricao-erro {
+  margin-bottom: 18px;
+  padding: 13px 15px;
+  border: 1px solid rgba(239, 68, 68, 0.32);
+  border-radius: 10px;
+  color: #fecaca;
+  background: rgba(127, 29, 29, 0.16);
+  font-size: 13px;
+}
+
+.plano-nutricao-secao {
+  margin-bottom: 24px;
+}
+
+.plano-nutricao-secao:last-child {
+  margin-bottom: 0;
+}
+
+.plano-nutricao-secao > header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.plano-nutricao-secao h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.plano-nutricao-secao header p {
+  margin: 0;
+  color: var(--modal-muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.plano-nutricao-add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  gap: 7px;
+  min-height: 36px;
+  padding: 0 13px;
+  border: 1px solid rgba(18, 216, 137, 0.42);
+  border-radius: 9px;
+  color: #69f0b5;
+  background: var(--modal-primary-soft);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 650;
+  transition: 0.2s ease;
+}
+
+.plano-nutricao-add:hover {
+  border-color: rgba(18, 216, 137, 0.68);
+  background: rgba(18, 216, 137, 0.18);
+  transform: translateY(-1px);
+}
+
+.plano-nutricao-grid {
+  display: grid;
+  gap: 13px;
+}
+
+.plano-nutricao-grid.metas {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 16px;
+  border: 1px solid var(--modal-border);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.014);
+}
+
+.plano-nutricao-grid.refeicao {
+  grid-template-columns: minmax(0, 1.25fr) minmax(150px, 0.72fr) minmax(140px, 0.68fr);
+}
+
+.plano-nutricao-campo {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.plano-nutricao-campo > span,
+.plano-nutricao-campo label {
+  color: #d5dde7;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.plano-nutricao-campo h3 {
+  margin: 0;
+  color: #d5dde7;
+  font-size: 14px;
+}
+
+.plano-nutricao-campo input,
+.plano-nutricao-campo textarea,
+.plano-nutricao-suplemento input,
+.plano-nutricao-observacoes textarea {
+  width: 100%;
+  border: 1px solid #203447;
+  border-radius: 9px;
+  outline: 0;
+  color: var(--modal-text);
+  background: var(--modal-input);
+  font: inherit;
+  font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.plano-nutricao-campo input,
+.plano-nutricao-suplemento input {
+  height: 42px;
+  padding: 0 12px;
+}
+
+.plano-nutricao-campo textarea {
+  min-height: 96px;
+  padding: 11px 12px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.plano-nutricao-campo input:hover,
+.plano-nutricao-campo textarea:hover,
+.plano-nutricao-suplemento input:hover,
+.plano-nutricao-observacoes textarea:hover {
+  border-color: #2a4258;
+  background: #081722;
+}
+
+.plano-nutricao-campo input:focus,
+.plano-nutricao-campo textarea:focus,
+.plano-nutricao-suplemento input:focus,
+.plano-nutricao-observacoes textarea:focus {
+  border-color: rgba(18, 216, 137, 0.75);
+  background: #081824;
+  box-shadow: 0 0 0 3px rgba(18, 216, 137, 0.09);
+}
+
+.plano-nutricao-itens {
+  display: grid;
+  gap: 14px;
+}
+
+.plano-nutricao-item {
+  padding: 15px;
+  border: 1px solid var(--modal-border);
+  border-radius: 13px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.014), transparent 60%),
+    var(--modal-card);
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.plano-nutricao-item:hover {
+  border-color: rgba(148, 163, 184, 0.25);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.02), transparent 60%),
+    var(--modal-card-hover);
+}
+
+.plano-nutricao-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 13px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.plano-nutricao-item-header strong {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.plano-nutricao-item-header button,
+.plano-nutricao-suplemento button {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--modal-danger);
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.plano-nutricao-item-header button:hover,
+.plano-nutricao-suplemento button:hover {
+  border-color: rgba(251, 113, 133, 0.24);
+  background: rgba(251, 113, 133, 0.09);
+}
+
+.plano-nutricao-suplementos {
+  display: grid;
+  gap: 10px;
+}
+
+.plano-nutricao-suplemento {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 36px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--modal-border);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.plano-nutricao-vazio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 92px;
+  padding: 16px;
+  border: 1px dashed rgba(148, 163, 184, 0.22);
+  border-radius: 11px;
+  color: var(--modal-muted);
+  background: rgba(255, 255, 255, 0.01);
+  font-size: 12px;
+  text-align: center;
+}
+
+.plano-nutricao-observacoes {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: flex-start;
+  gap: 11px;
+  color: #34d399;
+}
+
+.plano-nutricao-observacoes textarea {
+  min-height: 110px;
+  padding: 12px;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.plano-nutricao-modal-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 15px 22px;
+  border-top: 1px solid var(--modal-border);
+  background: rgba(7, 18, 28, 0.96);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.16);
+}
+
+.plano-nutricao-cancelar,
+.plano-nutricao-salvar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 41px;
+  padding: 0 17px;
+  border-radius: 9px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  transition: 0.2s ease;
+}
+
+.plano-nutricao-cancelar {
+  border: 1px solid #2a3e52;
+  color: #dce5ee;
+  background: #0d1926;
+}
+
+.plano-nutricao-cancelar:hover {
+  border-color: #3b536a;
+  background: #122231;
+}
+
+.plano-nutricao-salvar {
+  border: 1px solid #0bbf75;
+  color: #021b12;
+  background: linear-gradient(135deg, #12d889, #18e49a);
+  box-shadow: 0 10px 24px rgba(18, 216, 137, 0.17);
+}
+
+.plano-nutricao-salvar:hover:not(:disabled) {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.plano-nutricao-salvar:disabled,
+.plano-nutricao-cancelar:disabled {
+  opacity: 0.55;
+  cursor: wait;
+  transform: none;
+}
+
+@media (max-width: 900px) {
+  .plano-nutricao-grid.metas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .plano-nutricao-grid.refeicao {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .plano-nutricao-grid.refeicao .plano-nutricao-campo:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .plano-nutricao-overlay {
+    place-items: stretch;
+    padding: 0;
+  }
+
+  .plano-nutricao-modal {
+    width: 100%;
+    max-height: 100vh;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .plano-nutricao-modal-header {
+    padding: 16px;
+  }
+
+  .plano-nutricao-modal-body {
+    padding: 16px;
+  }
+
+  .plano-nutricao-grid.metas,
+  .plano-nutricao-grid.refeicao,
+  .plano-nutricao-suplemento {
+    grid-template-columns: 1fr;
+  }
+
+  .plano-nutricao-grid.refeicao .plano-nutricao-campo:first-child {
+    grid-column: auto;
+  }
+
+  .plano-nutricao-secao > header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .plano-nutricao-add {
+    width: 100%;
+  }
+
+  .plano-nutricao-modal-footer {
+    position: sticky;
+    bottom: 0;
+    padding: 13px 16px;
+  }
+
+  .plano-nutricao-cancelar,
+  .plano-nutricao-salvar {
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .plano-nutricao-modal-header h2 {
+    font-size: 17px;
+  }
+
+  .plano-nutricao-modal-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .plano-nutricao-grid.metas {
+    padding: 13px;
+  }
+
+  .plano-nutricao-item {
+    padding: 13px;
+  }
+
+  .plano-nutricao-modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .plano-nutricao-cancelar,
+  .plano-nutricao-salvar {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   CORREÇÃO DE ALTURA, RODAPÉ E CAMPO DE OBSERVAÇÕES
+   ========================================================= */
+
+.plano-nutricao-modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.plano-nutricao-modal-header {
+  flex: 0 0 auto;
+}
+
+.plano-nutricao-modal form {
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+  overflow: hidden;
+}
+
+.plano-nutricao-modal-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-bottom: 28px;
+}
+
+.plano-nutricao-modal-footer {
+  position: relative;
+  bottom: auto;
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.plano-nutricao-secao:last-child {
+  margin-bottom: 4px;
+}
+
+.plano-nutricao-observacoes {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: start;
+  width: 100%;
+  gap: 12px;
+}
+
+.plano-nutricao-observacoes > svg {
+  margin-top: 12px;
+}
+
+.plano-nutricao-observacoes textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 120px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 760px) {
+  .plano-nutricao-modal form {
+    height: calc(100vh - 75px);
+  }
+
+  .plano-nutricao-modal-footer {
+    position: relative;
+    bottom: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .plano-nutricao-observacoes {
+    grid-template-columns: 1fr;
+  }
+
+  .plano-nutricao-observacoes > svg {
+    margin-top: 0;
+  }
+}

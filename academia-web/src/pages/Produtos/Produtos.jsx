@@ -21,6 +21,7 @@ import {
   X,
 } from "lucide-react";
 
+import { useSearchParams } from "react-router-dom";
 import api from "../../services/api";
 import ProdutoModal from "../../components/ProdutoModal/ProdutoModal";
 import "./Produtos.css";
@@ -57,6 +58,20 @@ function Produtos() {
   const [menuAberto, setMenuAberto] = useState(null);
   const [produtoParaExcluir, setProdutoParaExcluir] = useState(null);
   const [excluindo, setExcluindo] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get("acao") !== "novo") return;
+
+    setModalAberto(true);
+
+    const novosParametros = new URLSearchParams(searchParams);
+    novosParametros.delete("acao");
+
+    setSearchParams(novosParametros, {
+      replace: true,
+    });
+  }, [searchParams, setSearchParams]);
 
   async function carregarProdutos() {
     try {
@@ -201,7 +216,7 @@ function Produtos() {
   function abrirCadastro() {
     setProdutoSelecionado(null);
     setModoModal("criar");
-    setModalAberto(true);
+    abrirCadastro();
   }
 
   function abrirVisualizacao(produto) {

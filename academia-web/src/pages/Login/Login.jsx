@@ -41,7 +41,7 @@ function Login() {
 
             <form className="login-box" onSubmit={entrar}>
 
-                <h1>AcademiaPro</h1>
+                <h1>Gym<span>Pilot</span></h1>
 
                 <input
                     type="email"
