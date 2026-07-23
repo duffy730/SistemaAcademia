@@ -44,6 +44,12 @@ body{
 
 }
 
+.login-box h1 span{
+
+    color: #2ecc71;
+
+}
+
 .login-box input{
 
     padding:14px;

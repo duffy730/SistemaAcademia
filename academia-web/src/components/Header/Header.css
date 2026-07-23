@@ -51,18 +51,3 @@
 .header-search input:focus {
   border-color: #1ca96a;
 }
-
-.notification-button {
-  width: 42px;
-  height: 42px;
-
-  background: #111a25;
-  border: none;
-  border-radius: 21px;
-
-  cursor: pointer;
-}
-
-.notification-button:hover {
-  background: #172230;
-}

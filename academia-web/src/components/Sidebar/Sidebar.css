@@ -23,16 +23,16 @@
   align-items: center;
   gap: 10px;
 
-  padding: 0 10px 24px;
+  padding: 0 10px 3px;
 }
 
 .sidebar-logo h1 {
   margin: 0;
-  font-size: 21px;
+  font-size: 27px;
 }
 
 .sidebar-logo-icon {
-  width: 35px;
+  width: 43px;
 }
 
 .icon {

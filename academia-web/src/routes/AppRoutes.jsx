@@ -8,6 +8,8 @@ import Planos from "../pages/Planos/Planos";
 import Matriculas from "../pages/Matriculas/Matriculas";
 import Produtos from "../pages/Produtos/Produtos";
 import Pagamentos from "../pages/Pagamentos/Pagamentos";
+import Usuarios from "../pages/Usuarios/Usuarios";
+import Nutri from "../pages/Nutricao/Nutricao"
 
 function PaginaTemporaria({ titulo }) {
   return <h1>{titulo}</h1>;
@@ -32,22 +34,11 @@ function AppRoutes() {
 
           <Route path="/pagamentos" element={<Pagamentos />} />
 
-          <Route
-            path="/nutri"
-            element={<PaginaTemporaria titulo="Nutricionista Virtual" />}
-          />
+          <Route path="/nutri" element={<Nutri/>} />
 
-          <Route
-            path="/usuarios"
-            element={<PaginaTemporaria titulo="Usuários" />}
-          />
+          <Route path="/usuarios" element={<Usuarios/>} />
 
-          <Route
-            path="/config"
-            element={<PaginaTemporaria titulo="Configurações" />}
-          />
         </Route>
-
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

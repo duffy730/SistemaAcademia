@@ -96,6 +96,16 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddScoped<
+    INutricaoRepository,
+    NutricaoRepository
+>();
+
+builder.Services.AddScoped<
+    INutricaoService,
+    NutricaoService
+>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
