@@ -6,6 +6,8 @@ function AlunoModal({ fechar, aoSalvar, aluno }) {
   const [form, setForm] = useState({
     nome: "",
     email: "",
+    telefone: "",
+    cpf: "",
     peso: "",
     altura: "",
     dataNascimento: "",
@@ -22,9 +24,12 @@ function AlunoModal({ fechar, aoSalvar, aluno }) {
 
                 nome: aluno.nome,
                 email: aluno.email,
+                telefone: aluno.telefone,
+                cpf: aluno.cpf,
                 peso: aluno.peso,
                 altura: aluno.altura,
                 dataNascimento: aluno.dataNascimento
+
 
             });
 
@@ -54,6 +59,8 @@ function AlunoModal({ fechar, aoSalvar, aluno }) {
 
             nome:form.nome,
             email:form.email,
+            telefone:form.telefone,
+            cpf:form.cpf,
             peso:Number(form.peso),
             altura:Number(form.altura),
             dataNascimento:form.dataNascimento
@@ -67,6 +74,8 @@ function AlunoModal({ fechar, aoSalvar, aluno }) {
 
                 nome:form.nome,
                 email:form.email,
+                telefone:form.telefone,
+                cpf:form.cpf,
                 peso:Number(form.peso),
                 altura:Number(form.altura),
                 dataNascimento:form.dataNascimento
@@ -124,6 +133,28 @@ function AlunoModal({ fechar, aoSalvar, aluno }) {
                 type="email"
                 name="email"
                 value={form.email}
+                onChange={atualizarCampo}
+                required
+              />
+            </label>
+
+            <label>
+              Telefone
+              <input
+                type="tel"
+                name="telefone"
+                value={form.telefone}
+                onChange={atualizarCampo}
+                required
+              />
+            </label>
+
+            <label>
+              CPF
+              <input
+                type="text"
+                name="cpf"
+                value={form.cpf}
                 onChange={atualizarCampo}
                 required
               />

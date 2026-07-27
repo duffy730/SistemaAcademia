@@ -212,8 +212,8 @@ async function confirmarExclusao() {
       "ID",
       "Nome",
       "Email",
-      "Peso",
-      "Altura",
+      "Telefone",
+      "CPF",
       "Data de nascimento",
     ];
 
@@ -221,8 +221,8 @@ async function confirmarExclusao() {
       aluno.id,
       aluno.nome,
       aluno.email,
-      aluno.peso,
-      aluno.altura,
+      aluno.telefone,
+      aluno.cpf,
       formatarData(aluno.dataNascimento),
     ]);
 
@@ -347,8 +347,8 @@ async function confirmarExclusao() {
               <tr>
                 <th>Aluno</th>
                 <th>E-mail</th>
-                <th>Peso</th>
-                <th>Altura</th>
+                <th>Telefone</th>
+                <th>CPF</th>
                 <th>Data de nascimento</th>
                 <th>Ações</th>
               </tr>

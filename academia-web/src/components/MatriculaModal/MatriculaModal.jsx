@@ -313,7 +313,7 @@ function MatriculaModal({
                   onChange={alterarCampo}
                   disabled={somenteLeitura || salvando}
                 >
-                  <option value="">Selecione o plano</option>
+                  <option value="" disabled>Selecione o plano</option>
 
                   {planos.map((plano) => (
                     <option key={plano.id} value={plano.id}>

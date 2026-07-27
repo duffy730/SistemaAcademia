@@ -93,7 +93,7 @@ public class UserService : IUserService
         var usuario = _userRepository.BuscarPorEmail(dto.Usuario);
 
         if (usuario == null || usuario.Senha != dto.Senha)
-            throw new Exception("Usuário ou senha inválidos");
+            return null;
         return GerarToken(usuario);
     }
 

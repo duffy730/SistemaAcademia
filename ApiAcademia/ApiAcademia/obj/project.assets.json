@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 3,
   "targets": {
     "net8.0": {
       "Azure.Core/1.25.0": {
@@ -4225,23 +4225,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Duffy\\.nuget\\packages\\": {},
+    "C:\\Users\\phgchair\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "e:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\ApiAcademia.csproj",
+      "projectUniqueName": "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia\\ApiAcademia.csproj",
       "projectName": "ApiAcademia",
-      "projectPath": "e:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\ApiAcademia.csproj",
-      "packagesPath": "C:\\Users\\Duffy\\.nuget\\packages\\",
-      "outputPath": "e:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\obj\\",
+      "projectPath": "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia\\ApiAcademia.csproj",
+      "packagesPath": "C:\\Users\\phgchair\\.nuget\\packages\\",
+      "outputPath": "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Duffy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\phgchair\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4250,15 +4250,16 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://git.detran.ba.gov.br/api/packages/PlataformaBaixa/nuget/index.json": {}
       },
       "frameworks": {
         "net8.0": {
-          "framework": "net8.0",
           "targetAlias": "net8.0",
           "projectReferences": {
-            "e:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia.Business\\ApiAcademia.Business.csproj": {
-              "projectPath": "e:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia.Business\\ApiAcademia.Business.csproj"
+            "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\ApiAcademia.Business.csproj": {
+              "projectPath": "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\ApiAcademia.Business.csproj"
             }
           }
         }
@@ -4273,11 +4274,10 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.300"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net8.0": {
-        "framework": "net8.0",
         "targetAlias": "net8.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": {
@@ -4320,7 +4320,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
