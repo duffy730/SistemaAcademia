@@ -1335,30 +1335,27 @@ export default function Dashboard() {
                   Nenhum pagamento confirmado.
                 </div>
               ) : (
-                informacoes.pagamentosRecentes.map(
-                  (pagamento) => (
-                    <div
-                      className="dashboard-payment-item"
-                      key={
-                        pagamento.id ??
-                        `${pagamento.nome}-${pagamento.data}`
-                      }
-                    >
-                      <Avatar
-                        nome={pagamento.nome}
-                        classe={pagamento.classe}
-                      />
+                informacoes.pagamentosRecentes.map((pagamento) => (
+                  <div
+                    className="dashboard-payment-item"
+                    key={pagamento.id ?? `${pagamento.nome}-${pagamento.data}`}
+                  >
+                    <Avatar
+                      nome={pagamento.nome}
+                      classe={pagamento.classe}
+                    />
 
-                      <div>
-                        <strong>{pagamento.nome}</strong>
+                    <div>
+                      <strong>{pagamento.nome}</strong>
+                      <div className="dashboard-payment-meta">
                         <span>{pagamento.origem}</span>
+                        <time>{formatarData(pagamento.data)}</time>
                       </div>
-
-                      <time>{formatarData(pagamento.data)}</time>
-                      <b>{formatarMoeda(pagamento.valor)}</b>
-                    </div>
-                  )
-                )
+                    </div>  
+                    
+                    <b>{formatarMoeda(pagamento.valor)}</b>
+                  </div>
+                ))
               )}
             </div>
           </article>

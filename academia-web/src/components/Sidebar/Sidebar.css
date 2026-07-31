@@ -21,7 +21,7 @@
 .sidebar-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px !important;
 
   padding: 0 10px 3px;
 }
@@ -32,7 +32,8 @@
 }
 
 .sidebar-logo-icon {
-  width: 43px;
+  width: 35px !important;
+  padding-top: 3px;
 }
 
 .icon {
@@ -45,7 +46,7 @@
 }
 
 .sidebar-logo-title-pro {
-    color: #0e7e48;
+    color: #2dc97d;
 }
 
 .sidebar-nav {
@@ -86,7 +87,7 @@
 
 .sidebar-nav a.active {
   color: #ffffff;
-  background: linear-gradient(135deg, #119957, #0e7e48);
+  background: #1f8c58;
 }
 
 .sidebar-nav a span {
@@ -134,6 +135,25 @@
   font-weight: 700;
 }
 
+.avatar-user-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.sidebar-avatar {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #1f8c58;
+  font-weight: 700;
+}
+
 .sidebar-footer button {
   padding: 10px;
 
@@ -148,4 +168,80 @@
 
 .sidebar-footer button:hover {
   background: #172230;
+}
+
+@media (max-width: 1600px) {
+  .sidebar-logo {
+    gap: 10px;
+    padding: 0 10px 3px;
+  }
+
+  .sidebar-logo h1 {
+    font-size: 25px;
+  }
+
+  .sidebar-logo-icon {
+    width: 35px;
+  }
+
+  .icon {
+    width: 18px;
+  }
+
+  .sidebar-nav {
+    gap: 7px;
+  }
+
+  .sidebar-section {
+    margin: 15px 7px 4px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .sidebar-nav a {
+    gap: 13px;
+
+    padding: 12px 14px;
+
+    border-radius: 9px;
+  }
+
+  .sidebar-nav a span {
+    width: 20px;
+  }
+
+  .sidebar-footer {
+    gap: 13px;
+    padding: 13px 4px 4px;
+  }
+
+  .sidebar-user {
+    gap: 11px;
+  }
+
+  .sidebar-user div:last-child {
+    gap: 3px;
+  }
+
+  .sidebar-avatar {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    font-weight: 700;
+  }
+
+  .avatar-user-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .sidebar-footer button {
+    font-size: 14px;
+    padding: 8px;
+    border-radius: 8px;
+  }
 }

@@ -1,25 +1,80 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Repository\\wadadawdwad\\ApiAcademia\\",
+  "WorkspaceRootPath": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260721011659_CriarModuloNutricao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ApiaAcademia.Repository\\Migrations\\20260721011659_CriarModuloNutricao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260731133300_CorrigirTiposTabelaAluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ApiaAcademia.Repository\\Migrations\\20260731133300_CorrigirTiposTabelaAluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260731132208_CorrigirTiposTabelaAlunos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ApiaAcademia.Repository\\Migrations\\20260731132208_CorrigirTiposTabelaAlunos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiaacademia.repository\\migrations\\20260731124837_corrigirtiposaluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|solutionrelative:apiaacademia.repository\\migrations\\20260731124837_corrigirtiposaluno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiaacademia.repository\\data\\appdbcontexts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|solutionrelative:apiaacademia.repository\\data\\appdbcontexts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A27A31AC-3557-9200-AD34-BF242A08C9BA}|ApiAcademia.Business\\ApiAcademia.Business.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiacademia.business\\dtos\\response\\alunoresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A27A31AC-3557-9200-AD34-BF242A08C9BA}|ApiAcademia.Business\\ApiAcademia.Business.csproj|solutionrelative:apiacademia.business\\dtos\\response\\alunoresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A27A31AC-3557-9200-AD34-BF242A08C9BA}|ApiAcademia.Business\\ApiAcademia.Business.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiacademia.business\\dtos\\criar\\criaralunodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A27A31AC-3557-9200-AD34-BF242A08C9BA}|ApiAcademia.Business\\ApiAcademia.Business.csproj|solutionrelative:apiacademia.business\\dtos\\criar\\criaralunodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiaacademia.repository\\entities\\alunoentitie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|solutionrelative:apiaacademia.repository\\entities\\alunoentitie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A27A31AC-3557-9200-AD34-BF242A08C9BA}|ApiAcademia.Business\\ApiAcademia.Business.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiacademia.business\\services\\alunoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A27A31AC-3557-9200-AD34-BF242A08C9BA}|ApiAcademia.Business\\ApiAcademia.Business.csproj|solutionrelative:apiacademia.business\\services\\alunoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiaacademia.repository\\repository\\alunorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|solutionrelative:apiaacademia.repository\\repository\\alunorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiaacademia.repository\\entities\\pagamentoentitie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|solutionrelative:apiaacademia.repository\\entities\\pagamentoentitie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiaacademia.repository\\migrations\\20260721011659_criarmodulonutricao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|solutionrelative:apiaacademia.repository\\migrations\\20260721011659_criarmodulonutricao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Arquivos de Programas\\VisualStudio\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{94E16A93-7763-66E4-615B-ED8EAB0667D1}|ApiAcademia\\ApiAcademia.csproj|e:\\repository\\wadadawdwad\\apiacademia\\apiacademia\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{94E16A93-7763-66E4-615B-ED8EAB0667D1}|ApiAcademia\\ApiAcademia.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiacademia\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{94E16A93-7763-66E4-615B-ED8EAB0667D1}|ApiAcademia\\ApiAcademia.csproj|solutionrelative:apiacademia\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A27A31AC-3557-9200-AD34-BF242A08C9BA}|ApiAcademia.Business\\ApiAcademia.Business.csproj|e:\\repository\\wadadawdwad\\apiacademia\\apiacademia.business\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A27A31AC-3557-9200-AD34-BF242A08C9BA}|ApiAcademia.Business\\ApiAcademia.Business.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiacademia.business\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A27A31AC-3557-9200-AD34-BF242A08C9BA}|ApiAcademia.Business\\ApiAcademia.Business.csproj|solutionrelative:apiacademia.business\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A27A31AC-3557-9200-AD34-BF242A08C9BA}|ApiAcademia.Business\\ApiAcademia.Business.csproj|e:\\repository\\wadadawdwad\\apiacademia\\apiacademia.business\\services\\planoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A27A31AC-3557-9200-AD34-BF242A08C9BA}|ApiAcademia.Business\\ApiAcademia.Business.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiacademia.business\\services\\planoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A27A31AC-3557-9200-AD34-BF242A08C9BA}|ApiAcademia.Business\\ApiAcademia.Business.csproj|solutionrelative:apiacademia.business\\services\\planoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiaacademia.repository\\migrations\\20260728144722_cpf telefone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|solutionrelative:apiaacademia.repository\\migrations\\20260728144722_cpf telefone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiaacademia.repository\\migrations\\20260728144421_cpf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|solutionrelative:apiaacademia.repository\\migrations\\20260728144421_cpf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|c:\\repository\\sistemaacademia\\apiacademia\\apiaacademia.repository\\migrations\\20260728124152_ajsute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0537A77B-07DA-226C-271D-305BB5EE4864}|ApiaAcademia.Repository\\ApiAcademia.Repository.csproj|solutionrelative:apiaacademia.repository\\migrations\\20260728124152_ajsute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,8 +84,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
@@ -38,36 +109,203 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20260721011659_CriarModuloNutricao.cs",
-              "DocumentMoniker": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260721011659_CriarModuloNutricao.cs",
-              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Migrations\\20260721011659_CriarModuloNutricao.cs",
-              "ToolTip": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260721011659_CriarModuloNutricao.cs",
-              "RelativeToolTip": "ApiaAcademia.Repository\\Migrations\\20260721011659_CriarModuloNutricao.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "20260731133300_CorrigirTiposTabelaAluno.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260731133300_CorrigirTiposTabelaAluno.cs",
+              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Migrations\\20260731133300_CorrigirTiposTabelaAluno.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260731133300_CorrigirTiposTabelaAluno.cs",
+              "RelativeToolTip": "ApiaAcademia.Repository\\Migrations\\20260731133300_CorrigirTiposTabelaAluno.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-21T01:16:59.434Z",
+              "WhenOpened": "2026-07-31T13:33:01.057Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Microsoft.Common.CurrentVersion.targets",
-              "DocumentMoniker": "E:\\Arquivos de Programas\\VisualStudio\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\Arquivos de Programas\\VisualStudio\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "ToolTip": "E:\\Arquivos de Programas\\VisualStudio\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "RelativeToolTip": "..\\..\\..\\Arquivos de Programas\\VisualStudio\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "ViewState": "AgIAANQTAAAAAAAAAADgv+cTAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2026-07-21T00:58:50.381Z",
+              "Title": "20260731132208_CorrigirTiposTabelaAlunos.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260731132208_CorrigirTiposTabelaAlunos.cs",
+              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Migrations\\20260731132208_CorrigirTiposTabelaAlunos.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260731132208_CorrigirTiposTabelaAlunos.cs",
+              "RelativeToolTip": "ApiaAcademia.Repository\\Migrations\\20260731132208_CorrigirTiposTabelaAlunos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T13:22:09.441Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "20260731124837_CorrigirTiposAluno.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260731124837_CorrigirTiposAluno.cs",
+              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Migrations\\20260731124837_CorrigirTiposAluno.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260731124837_CorrigirTiposAluno.cs",
+              "RelativeToolTip": "ApiaAcademia.Repository\\Migrations\\20260731124837_CorrigirTiposAluno.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T12:48:40.991Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeToolTip": "..\\..\\..\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AgIAACEUAAAAAAAAAAAlwOUTAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-07-31T12:25:56.311Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppDbContexts.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Data\\AppDbContexts.cs",
+              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Data\\AppDbContexts.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Data\\AppDbContexts.cs",
+              "RelativeToolTip": "ApiaAcademia.Repository\\Data\\AppDbContexts.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAwDUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T12:23:12.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "20260728144722_Cpf Telefone.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260728144722_Cpf Telefone.cs",
+              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Migrations\\20260728144722_Cpf Telefone.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260728144722_Cpf Telefone.cs",
+              "RelativeToolTip": "ApiaAcademia.Repository\\Migrations\\20260728144722_Cpf Telefone.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-28T14:47:22.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "20260728144421_Cpf.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260728144421_Cpf.cs",
+              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Migrations\\20260728144421_Cpf.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260728144421_Cpf.cs",
+              "RelativeToolTip": "ApiaAcademia.Repository\\Migrations\\20260728144421_Cpf.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-28T14:44:22.227Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AlunoService.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\Services\\AlunoService.cs",
+              "RelativeDocumentMoniker": "ApiAcademia.Business\\Services\\AlunoService.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\Services\\AlunoService.cs",
+              "RelativeToolTip": "ApiAcademia.Business\\Services\\AlunoService.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAA3wEkAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-28T14:36:45.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AlunoResponseDTO.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\DTOs\\Response\\AlunoResponseDTO.cs",
+              "RelativeDocumentMoniker": "ApiAcademia.Business\\DTOs\\Response\\AlunoResponseDTO.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\DTOs\\Response\\AlunoResponseDTO.cs",
+              "RelativeToolTip": "ApiAcademia.Business\\DTOs\\Response\\AlunoResponseDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-28T14:34:55.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CriarAlunoDTO.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\DTOs\\Criar\\CriarAlunoDTO.cs",
+              "RelativeDocumentMoniker": "ApiAcademia.Business\\DTOs\\Criar\\CriarAlunoDTO.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\DTOs\\Criar\\CriarAlunoDTO.cs",
+              "RelativeToolTip": "ApiAcademia.Business\\DTOs\\Criar\\CriarAlunoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-28T14:34:09.376Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AlunoRepository.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Repository\\AlunoRepository.cs",
+              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Repository\\AlunoRepository.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Repository\\AlunoRepository.cs",
+              "RelativeToolTip": "ApiaAcademia.Repository\\Repository\\AlunoRepository.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA4wD0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-28T14:33:10.711Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AlunoEntitie.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Entities\\AlunoEntitie.cs",
+              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Entities\\AlunoEntitie.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Entities\\AlunoEntitie.cs",
+              "RelativeToolTip": "ApiaAcademia.Repository\\Entities\\AlunoEntitie.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-28T14:32:01.44Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PagamentoEntitie.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Entities\\PagamentoEntitie.cs",
+              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Entities\\PagamentoEntitie.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Entities\\PagamentoEntitie.cs",
+              "RelativeToolTip": "ApiaAcademia.Repository\\Entities\\PagamentoEntitie.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-28T12:42:37.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "20260728124152_ajsute.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260728124152_ajsute.cs",
+              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Migrations\\20260728124152_ajsute.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260728124152_ajsute.cs",
+              "RelativeToolTip": "ApiaAcademia.Repository\\Migrations\\20260728124152_ajsute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-28T12:41:53.138Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "20260721011659_CriarModuloNutricao.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260721011659_CriarModuloNutricao.cs",
+              "RelativeDocumentMoniker": "ApiaAcademia.Repository\\Migrations\\20260721011659_CriarModuloNutricao.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260721011659_CriarModuloNutricao.cs",
+              "RelativeToolTip": "ApiaAcademia.Repository\\Migrations\\20260721011659_CriarModuloNutricao.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-21T01:16:59.434Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "E:\\Arquivos de Programas\\VisualStudio\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "E:\\Arquivos de Programas\\VisualStudio\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AgIAANQTAAAAAAAAAADgv+cTAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-07-21T00:58:50.381Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "UserController.cs",
-              "DocumentMoniker": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\Controllers\\UserController.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "ApiAcademia\\Controllers\\UserController.cs",
-              "ToolTip": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia\\Controllers\\UserController.cs",
               "RelativeToolTip": "ApiAcademia\\Controllers\\UserController.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAA1wC8AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -75,11 +313,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 15,
               "Title": "PlanoService.cs",
-              "DocumentMoniker": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia.Business\\Services\\PlanoService.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\Services\\PlanoService.cs",
               "RelativeDocumentMoniker": "ApiAcademia.Business\\Services\\PlanoService.cs",
-              "ToolTip": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia.Business\\Services\\PlanoService.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\Services\\PlanoService.cs",
               "RelativeToolTip": "ApiAcademia.Business\\Services\\PlanoService.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAAwC0AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -87,11 +325,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 14,
               "Title": "UserService.cs",
-              "DocumentMoniker": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia.Business\\Services\\UserService.cs",
+              "DocumentMoniker": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "ApiAcademia.Business\\Services\\UserService.cs",
-              "ToolTip": "E:\\Repository\\wadadawdwad\\ApiAcademia\\ApiAcademia.Business\\Services\\UserService.cs",
+              "ToolTip": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\Services\\UserService.cs",
               "RelativeToolTip": "ApiAcademia.Business\\Services\\UserService.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAzwHQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

@@ -140,7 +140,7 @@ function Alunos() {
 
   function abrirCadastro() {
     setAlunoSelecionado(null);
-    abrirCadastro();
+    setModalAberto(true);
   }
 
   function abrirEdicao(aluno) {
@@ -161,6 +161,17 @@ function fecharModalExclusao() {
   if (!excluindo) {
     setAlunoParaExcluir(null);
   }
+}
+
+function formatarTelefone(tel) {
+  const v = tel.replace(/\D/g, '');
+  return v.length === 11 
+    ? v.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
+    : v.replace(/^(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+}
+
+function formatarCPF(cpf) {
+  return cpf.replace(/\D/g, '').replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
 }
 
 async function confirmarExclusao() {
@@ -383,8 +394,8 @@ async function confirmarExclusao() {
                     </td>
 
                     <td>{aluno.email}</td>
-                    <td>{Number(aluno.peso).toFixed(1)} kg</td>
-                    <td>{Number(aluno.altura).toFixed(2)} m</td>
+                    <td>{formatarTelefone(aluno.telefone)}</td>
+                    <td>{formatarCPF(aluno.cpf)}</td>
                     <td>{formatarData(aluno.dataNascimento)}</td>
 
                     <td>

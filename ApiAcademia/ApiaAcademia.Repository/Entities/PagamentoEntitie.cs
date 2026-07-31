@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +21,10 @@ public class PagamentoEntitie
     public string MetodoPagamento { get; set; }
 
     public int? ProdutoId { get; set; }
+    
     public ProdutosEntitie? Produto { get; set; }
+
     public string Status { get; set; } = "Pendente";
+
     public int Quantidade { get; set; }
 }

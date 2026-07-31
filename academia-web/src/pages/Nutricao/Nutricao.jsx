@@ -97,43 +97,89 @@ export default function Nutricao() {
   }, [alunoId]);
 
   async function carregarAlunos() {
-    try {
-      setCarregandoAlunos(true);
-      setErro("");
+  try {
+    setCarregandoAlunos(true);
+    setErro("");
 
-      const resposta = await axios.get(
-        `${API_URL}/alunos/listar`,
-        authConfig()
+    const [respostaAlunos, respostaMatriculas] =
+      await Promise.all([
+        axios.get(
+          `${API_URL}/alunos/listar`,
+          authConfig()
+        ),
+
+        axios.get(
+          `${API_URL}/matriculas/listar`,
+          authConfig()
+        ),
+      ]);
+
+    const listaAlunos = normalizarLista(respostaAlunos);
+    const listaMatriculas = normalizarLista(
+      respostaMatriculas
+    );
+
+    const matriculasAtivas = listaMatriculas.filter(
+      matriculaEstaAtiva
+    );
+
+    const alunosComMatriculaAtiva = listaAlunos
+      .map((aluno) => {
+        const matriculaAtiva = matriculasAtivas.find(
+          (matricula) =>
+            String(
+              matricula.alunoId ??
+                matricula.aluno?.id
+            ) === String(aluno.id)
+        );
+
+        if (!matriculaAtiva) {
+          return null;
+        }
+
+        return {
+          ...aluno,
+          matriculaId: matriculaAtiva.id,
+          matricula: matriculaAtiva,
+        };
+      })
+      .filter(Boolean)
+      .sort((alunoA, alunoB) =>
+        nomeAluno(alunoA).localeCompare(
+          nomeAluno(alunoB),
+          "pt-BR",
+          {
+            sensitivity: "base",
+          }
+        )
       );
 
-      const listaOrdenada = normalizarLista(resposta).sort((alunoA, alunoB) =>
-        nomeAluno(alunoA).localeCompare(nomeAluno(alunoB), "pt-BR", {
-          sensitivity: "base",
-        })
+    setAlunos(alunosComMatriculaAtiva);
+
+    if (alunosComMatriculaAtiva.length > 0) {
+      setAlunoId(
+        String(alunosComMatriculaAtiva[0].id)
       );
-
-      setAlunos(listaOrdenada);
-
-      if (listaOrdenada.length > 0) {
-        setAlunoId(String(listaOrdenada[0].id));
-      } else {
-        setAlunoId("");
-        setPlano(null);
-      }
-    } catch (error) {
-      console.error(
-        "Erro ao carregar alunos:",
-        error.response?.data ?? error
-      );
-
-      setErro("Não foi possível carregar os alunos.");
-      setAlunos([]);
+    } else {
       setAlunoId("");
       setPlano(null);
-    } finally {
-      setCarregandoAlunos(false);
     }
+  } catch (error) {
+    console.error(
+      "Erro ao carregar alunos ativos:",
+      error.response?.data ?? error
+    );
+
+    setErro(
+      "Não foi possível carregar os alunos com matrícula ativa."
+    );
+
+    setAlunos([]);
+    setAlunoId("");
+  } finally {
+    setCarregandoAlunos(false);
   }
+}
 
   async function carregarPlano(id) {
     try {
@@ -254,6 +300,18 @@ export default function Nutricao() {
       icone: <Droplets size={22} />,
     },
   ];
+
+  function matriculaEstaAtiva(matricula) {
+  const status = String(matricula?.status ?? "")
+    .trim()
+    .toLowerCase();
+
+  if (matricula?.ativa === true) {
+    return true;
+  }
+
+  return status === "ativa" || status === "ativo";
+}
 
   function PlanoAlimentar() {
     const refeicoes = plano?.refeicoes ?? [];
@@ -526,7 +584,7 @@ export default function Nutricao() {
 
           <div>
             <strong>{nomeAluno(alunoSelecionado)}</strong>
-            <span>{matriculaAluno(alunoSelecionado)}</span>
+            <span>{alunoSelecionado?.matriculaId ? `Matrícula: #${alunoSelecionado.matriculaId}` : "Sem matrícula ativa"}</span>
           </div>
 
           <ChevronDown size={16} />

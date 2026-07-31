@@ -216,7 +216,7 @@ function Produtos() {
   function abrirCadastro() {
     setProdutoSelecionado(null);
     setModoModal("criar");
-    abrirCadastro();
+    setModalAberto(true);
   }
 
   function abrirVisualizacao(produto) {

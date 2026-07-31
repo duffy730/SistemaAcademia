@@ -165,7 +165,7 @@ function Pagamentos() {
   function abrirCadastro() {
     setPagamentoSelecionado(null);
     setModoModal("criar");
-    abrirCadastro();
+    setModalAberto(true);
   }
 
   function abrirVisualizacao(pagamento) {

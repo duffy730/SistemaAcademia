@@ -52,6 +52,8 @@ public class AlunoRepository : IAlunoRepository
             alunoExistente.Altura = aluno.Altura;
             alunoExistente.DataNascimento = aluno.DataNascimento;
             alunoExistente.Email = aluno.Email;
+            alunoExistente.Telefone = aluno.Telefone;
+            alunoExistente.Cpf = aluno.Cpf;
             _context.SaveChanges();
         }
     }

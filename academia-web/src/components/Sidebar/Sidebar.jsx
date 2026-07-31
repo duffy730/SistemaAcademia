@@ -3,7 +3,7 @@ import { FaUser } from 'react-icons/fa';
 import "./Sidebar.css";
 import { useAuth } from "../../context/AuthContext";
 
-import iconPeso from '../../assets/icons/peso.png'
+import iconPeso from '../../assets/icons/icon.png'
 import iconHome from '../../assets/icons/home.png'
 import iconAlunos from '../../assets/icons/alunos.png'
 import iconPlanos from '../../assets/icons/planos.png'
@@ -81,7 +81,7 @@ function Sidebar() {
       <div className="sidebar-footer">
         <div className="sidebar-user">
           <div className="sidebar-avatar">
-            <FaUser size={21}/>
+            <FaUser className="avatar-user-icon"/>
           </div>
           <div>
             <strong>{usuario?.nome ?? "Carregando..."}</strong>

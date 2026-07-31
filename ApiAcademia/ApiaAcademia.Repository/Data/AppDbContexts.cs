@@ -50,6 +50,15 @@ public class AppDbContext : DbContext
             .Property(aluno => aluno.Id)
             .ValueGeneratedOnAdd();
 
+        modelBuilder.Entity<AlunoEntitie>()
+            .Property(a => a.Cpf)
+            .HasMaxLength(14);
+
+        modelBuilder.Entity<AlunoEntitie>()
+            .Property(a => a.Telefone)
+            .HasMaxLength(20);
+
+
         /*
          * Planos
          */

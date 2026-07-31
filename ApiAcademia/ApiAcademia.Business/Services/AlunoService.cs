@@ -42,6 +42,8 @@ public class AlunoService : IAlunoService
             Peso = aluno.Peso,
             Altura = aluno.Altura,
             Email = aluno.Email,
+            Telefone = aluno.Telefone,
+            Cpf = aluno.Cpf,
             Idade = DateTime.Today.Year - aluno.DataNascimento.Year,
             DataNascimento = aluno.DataNascimento
         }).ToList();
@@ -74,9 +76,11 @@ public class AlunoService : IAlunoService
         var novoAluno = new AlunoEntitie
         {
             Nome = dto.Nome,
+            Cpf = dto.Cpf,
             Peso = dto.Peso,
             Altura = dto.Altura,
             Email = dto.Email,
+            Telefone = dto.Telefone,
             DataNascimento = dto.DataNascimento
         };
 
@@ -91,9 +95,11 @@ public class AlunoService : IAlunoService
             return false;
         }
         alunoExistente.Nome = dto.Nome;
+        alunoExistente.Cpf = dto.Cpf;
         alunoExistente.Peso = dto.Peso;
         alunoExistente.Altura = dto.Altura;
         alunoExistente.Email = dto.Email;
+        alunoExistente.Telefone = dto.Telefone;
         alunoExistente.DataNascimento = dto.DataNascimento;
 
         _alunoRepository.Atualizar(alunoExistente);

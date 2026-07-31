@@ -209,13 +209,13 @@ function Matriculas() {
   function abrirCadastro() {
     setMatriculaSelecionada(null);
     setModoModal("criar");
-    abrirCadastro();
+    setModalAberto(true);
   }
 
   function abrirVisualizacao(matricula) {
     setMatriculaSelecionada(matricula);
     setModoModal("visualizar");
-    abrirCadastro();
+    setModalAberto(true);
     setMenuAberto(null);
   }
 

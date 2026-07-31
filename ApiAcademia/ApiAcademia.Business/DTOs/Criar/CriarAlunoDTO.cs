@@ -6,5 +6,7 @@ public class CriarAlunoDTO
     public double Peso { get; set; }
     public double Altura { get; set; }
     public string Email { get; set; }
+    public string Telefone { get; set; }
+    public string Cpf { get; set; }
     public DateOnly DataNascimento { get; set; }
 }

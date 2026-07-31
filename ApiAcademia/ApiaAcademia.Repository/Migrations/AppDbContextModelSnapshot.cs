@@ -33,6 +33,11 @@ namespace ApiAcademia.Repository.Migrations
                     b.Property<double>("Altura")
                         .HasColumnType("float");
 
+                    b.Property<string>("Cpf")
+                        .IsRequired()
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
+
                     b.Property<DateOnly>("DataNascimento")
                         .HasColumnType("date");
 
@@ -46,6 +51,11 @@ namespace ApiAcademia.Repository.Migrations
 
                     b.Property<double>("Peso")
                         .HasColumnType("float");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
