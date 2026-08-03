@@ -181,9 +181,6 @@ export default function Login() {
     <main className="login-page">
       <section className="login-presentation">
         <div className="login-brand">
-          <span className="login-brand-icon">
-            <img className="icon" src={Icone} alt="icon" />
-          </span>
 
           <div>
             <strong>GymPilot</strong>

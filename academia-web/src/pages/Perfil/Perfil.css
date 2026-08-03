@@ -1,0 +1,244 @@
+.perfil-page {
+  min-height: 100vh;
+  padding: 32px;
+  background: #07111a;
+  color: #f5f7f8;
+}
+
+.perfil-header {
+  margin-bottom: 28px;
+}
+
+.perfil-header h1 {
+  margin: 6px 0;
+  font-size: 32px;
+}
+
+.perfil-header p {
+  margin: 0;
+  color: #8f9ba5;
+}
+
+.perfil-subtitle {
+  color: #22c77a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+/* Modifique esta classe no seu código */
+.perfil-card,
+.perfil-security-card {
+  max-width: 760px;
+  padding: 26px;
+  margin-bottom: 20px;
+  /* Alterado: margem automática nas laterais centraliza o bloco */
+  margin-left: auto;
+  margin-right: auto;
+
+  background: #0c1822;
+  border: 1px solid #1c2a35;
+  border-radius: 16px;
+}
+
+
+/* Modifique esta classe no seu código */
+.perfil-user-info {
+  display: flex;
+  flex-direction: column !important; /* Coloca a foto acima do texto */
+  align-items: center !important;    /* Centraliza os blocos horizontalmente */
+  justify-content: center !important;  /* Centraliza os blocos verticalmente */
+  text-align: center !important;     /* Centraliza o texto "Pedro" e "Admin" */
+  
+  gap: 16px;
+
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+
+  border-bottom: 1px solid #1c2a35;
+}
+
+
+.perfil-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+  background: #15372b;
+  color: #22c77a;
+  font-size: 28px;
+}
+
+.perfil-user-info h2 {
+  margin: 0 0 5px;
+}
+
+.perfil-user-info span {
+  color: #8f9ba5;
+}
+
+.perfil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.perfil-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.perfil-input-group label {
+  color: #c8d0d6;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.perfil-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0 14px;
+
+  background: #08131c;
+  border: 1px solid #22313d;
+  border-radius: 10px;
+}
+
+.perfil-input svg {
+  color: #74828e;
+}
+
+.perfil-input input {
+  width: 100%;
+  height: 48px;
+
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.perfil-input input:disabled {
+  color: #7f8b95;
+  cursor: not-allowed;
+}
+
+.perfil-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+
+  margin-top: 10px;
+}
+
+.perfil-button {
+  padding: 11px 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.perfil-button.primary {
+  background: #22c77a;
+  color: #06140e;
+}
+
+.perfil-button.primary:hover {
+  background: #1eb46e;
+}
+
+.perfil-button.secondary {
+  background: #16232d;
+  color: #d1d7dc;
+  border: 1px solid #293945;
+}
+
+.perfil-security-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.perfil-security-card h3 {
+  margin: 0 0 6px;
+}
+
+.perfil-security-card p {
+  margin: 0;
+  color: #8f9ba5;
+}
+
+.perfil-logout {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 12px 18px;
+
+  background: transparent;
+  border: 1px solid #e05252;
+  border-radius: 9px;
+
+  color: #ff6868;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.perfil-logout:hover {
+  background: rgba(224, 82, 82, 0.1);
+}
+
+@media (max-width: 768px) {
+  .perfil-page {
+    padding: 22px 16px 100px;
+  }
+
+  .perfil-header h1 {
+    font-size: 26px;
+  }
+
+  .perfil-card,
+  .perfil-security-card {
+    padding: 20px;
+  }
+
+  .perfil-user-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .perfil-security-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .perfil-security-card .perfil-button {
+    width: 100%;
+  }
+
+  .perfil-actions {
+    flex-direction: column-reverse;
+  }
+
+  .perfil-actions button {
+    width: 100%;
+  }
+
+  .perfil-logout {
+    width: 100%;
+    justify-content: center;
+  }
+}

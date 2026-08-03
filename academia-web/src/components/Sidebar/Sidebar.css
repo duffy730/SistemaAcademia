@@ -85,6 +85,12 @@
   background: #172230;
 }
 
+.sidebar-logout:hover {
+  color: #ff8282;
+  background: rgba(185, 44, 44, 0.13);
+  border-color: rgba(255, 90, 90, 0.35);
+}
+
 .sidebar-nav a.active {
   color: #ffffff;
   background: #1f8c58;
@@ -131,27 +137,13 @@
 
   border-radius: 50%;
 
-  background: #1f8c58;
+  background: #516b5e;
   font-weight: 700;
 }
 
 .avatar-user-icon {
   width: 20px;
   height: 20px;
-}
-
-.sidebar-avatar {
-  width: 42px;
-  height: 42px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: #1f8c58;
-  font-weight: 700;
 }
 
 .sidebar-footer button {
@@ -243,5 +235,95 @@
     font-size: 14px;
     padding: 8px;
     border-radius: 8px;
+  }
+}
+
+.mobile-bottom-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-bottom-menu {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 72px;
+    padding: 8px 12px;
+
+    background: #08131c;
+    border-top: 1px solid #22303c;
+    z-index: 1000;
+  }
+
+  .mobile-menu-item {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 80px;
+    gap: 4px;
+
+    color: #8c99a5;
+    text-decoration: none;
+    font-size: 12px;
+  }
+
+  .mobile-menu-item img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    opacity: 0.75;
+  }
+
+  .mobile-menu-react-icon,
+  .mobile-menu-icon {
+    font-size: 21px;
+  }
+
+  .mobile-menu-item.active {
+    color: #21d07a;
+  }
+
+  .mobile-menu-item.active img {
+    opacity: 1;
+  }
+
+  .mobile-menu-item.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .mobile-menu-item small {
+    position: absolute;
+    top: -5px;
+    right: -2px;
+
+    padding: 2px 5px;
+    border-radius: 8px;
+
+    background: #1d2a34;
+    color: #c4ccd3;
+    font-size: 8px;
+  }
+
+  .main-content {
+    padding-bottom: 90px;
   }
 }

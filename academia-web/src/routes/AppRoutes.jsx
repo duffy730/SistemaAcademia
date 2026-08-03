@@ -10,6 +10,7 @@ import Produtos from "../pages/Produtos/Produtos";
 import Pagamentos from "../pages/Pagamentos/Pagamentos";
 import Usuarios from "../pages/Usuarios/Usuarios";
 import Nutri from "../pages/Nutricao/Nutricao"
+import Perfil from "../pages/Perfil/Perfil";
 
 function PaginaTemporaria({ titulo }) {
   return <h1>{titulo}</h1>;
@@ -37,6 +38,8 @@ function AppRoutes() {
           <Route path="/nutri" element={<Nutri/>} />
 
           <Route path="/usuarios" element={<Usuarios/>} />
+
+          <Route path="/perfil" element={<Perfil />} />
 
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />

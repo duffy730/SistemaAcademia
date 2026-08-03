@@ -87,6 +87,8 @@ function Alunos() {
       return (
         aluno.nome?.toLowerCase().includes(termo) ||
         aluno.email?.toLowerCase().includes(termo) ||
+        aluno.telefone?.toLowerCase().includes(termo) ||
+        aluno.cpf?.toLowerCase().includes(termo) ||
         String(aluno.id).includes(termo)
       );
     });

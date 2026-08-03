@@ -606,18 +606,20 @@ export default function Nutricao() {
           </select>
         </div>
 
-        <nav className="nutricao-tabs">
-          {ABAS.map((aba) => (
-            <button
-              type="button"
-              key={aba}
-              className={abaAtiva === aba ? "ativa" : ""}
-              onClick={() => setAbaAtiva(aba)}
-            >
-              {aba}
-            </button>
-          ))}
-        </nav>
+        <div className="nutricao-tabs-wrapper">
+          <nav className="nutricao-tabs">
+            {ABAS.map((aba) => (
+              <button
+                type="button"
+                key={aba}
+                className={abaAtiva === aba ? "ativa" : ""}
+                onClick={() => setAbaAtiva(aba)}
+              >
+                {aba}
+              </button>
+            ))}
+          </nav>
+        </div>
       </section>
 
       {carregandoPlano ? (

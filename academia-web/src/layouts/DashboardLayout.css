@@ -14,7 +14,7 @@
 .dashboard-content {
   width: 100%;
   min-width: 0;
-  padding: 28px;
+  padding: 0px 10px 10px 10px !important;
   color: #ffffff;
   overflow-x: hidden;
 }

@@ -619,8 +619,49 @@
   transition: transform 0.2s ease;
 }
 
+.dashboard-chart-hover-area {
+  fill: transparent;
+  pointer-events: all;
+}
+
+.dashboard-chart-point {
+  pointer-events: none;
+  transition:
+    r 0.15s ease,
+    fill 0.15s ease,
+    filter 0.15s ease;
+}
+
+.dashboard-chart-point.ativo {
+  fill: #72f2b7;
+  filter: drop-shadow(0 0 7px rgba(50, 212, 135, 0.85));
+}
+
 .dashboard-quick-actions button:hover > span {
   transform: translateY(-2px);
+}
+
+.dashboard-chart-marker {
+  cursor: pointer;
+}
+
+.dashboard-chart-hit-area {
+  fill: transparent;
+  pointer-events: all;
+}
+
+.dashboard-chart-marker:hover .dashboard-chart-point {
+  r: 7px;
+  fill: #6af0b2;
+  filter: drop-shadow(0 0 7px rgba(50, 212, 135, 0.8));
+}
+
+.dashboard-chart-tooltip-dynamic {
+  right: auto;
+  z-index: 10;
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 12px));
+  white-space: nowrap;
 }
 
 @media (max-width: 1380px) {

@@ -578,6 +578,8 @@ function Avatar({ nome, classe = "verde" }) {
 }
 
 export default function Dashboard() {
+  const [pontoGraficoAtivo, setPontoGraficoAtivo] = useState(null);
+
   const [dados, setDados] = useState({
     alunos: [],
     matriculas: [],
@@ -986,9 +988,6 @@ export default function Dashboard() {
     };
   }, [dados]);
 
-  const ultimoPontoGrafico =
-    informacoes.grafico.pontos.at(-1);
-
   return (
     <main className="dashboard-page">
       <header className="dashboard-page-header">
@@ -1094,6 +1093,7 @@ export default function Dashboard() {
                     viewBox="0 0 720 250"
                     preserveAspectRatio="none"
                     aria-label="Gráfico de faturamento dos últimos seis meses"
+                    onMouseLeave={() => setPontoGraficoAtivo(null)}
                   >
                     <defs>
                       <linearGradient
@@ -1127,18 +1127,55 @@ export default function Dashboard() {
                       />
                     ))}
 
-                    {informacoes.grafico.pontos.map(
-                      (ponto) => (
-                        <line
-                          key={`linha-${ponto.x}`}
-                          x1={ponto.x}
-                          x2={ponto.x}
-                          y1="15"
-                          y2="225"
-                          className="dashboard-chart-line vertical"
+                    {informacoes.grafico.pontos.map((ponto) => (
+                      <g
+                        key={`${ponto.x}-${ponto.y}`}
+                        className="dashboard-chart-marker"
+                        onMouseEnter={() => setPontoGraficoAtivo(ponto)}
+                        onMouseLeave={() => setPontoGraficoAtivo(null)}
+                      >
+                        <circle
+                          cx={ponto.x}
+                          cy={ponto.y}
+                          r="15"
+                          className="dashboard-chart-hit-area"
                         />
-                      )
-                    )}
+
+                        <circle
+                          cx={ponto.x}
+                          cy={ponto.y}
+                          r="5"
+                          className="dashboard-chart-point"
+                        />
+                      </g>
+                    ))}
+
+                    {informacoes.grafico.pontos.map((ponto, indice, pontos) => {
+                      const pontoAnterior = pontos[indice - 1];
+                      const proximoPonto = pontos[indice + 1];
+
+                      const inicioArea =
+                        indice === 0
+                          ? 0
+                          : (pontoAnterior.x + ponto.x) / 2;
+
+                      const fimArea =
+                        indice === pontos.length - 1
+                          ? 720
+                          : (ponto.x + proximoPonto.x) / 2;
+
+                      return (
+                        <rect
+                          key={`area-${chaveMes(ponto.mes)}`}
+                          x={inicioArea}
+                          y="0"
+                          width={fimArea - inicioArea}
+                          height="250"
+                          className="dashboard-chart-hover-area"
+                          onMouseEnter={() => setPontoGraficoAtivo(ponto)}
+                        />
+                      );
+                    })}
 
                     <polygon
                       points={informacoes.grafico.area}
@@ -1171,22 +1208,29 @@ export default function Dashboard() {
                     ))}
                   </div>
 
-                  <div className="dashboard-chart-tooltip">
-                    <strong>
-                      {formatarMoeda(
-                        ultimoPontoGrafico?.total ?? 0
-                      )}
-                    </strong>
-                    <span>
-                      {ultimoPontoGrafico?.mes.toLocaleDateString(
-                        "pt-BR",
-                        {
-                          month: "short",
-                          year: "numeric",
-                        }
-                      )}
-                    </span>
-                  </div>
+                  {pontoGraficoAtivo && (
+                    <div
+                      className="dashboard-chart-tooltip dashboard-chart-tooltip-dynamic"
+                      style={{
+                        left: `${(pontoGraficoAtivo.x / 720) * 100}%`,
+                        top: `${(pontoGraficoAtivo.y / 250) * 100}%`,
+                      }}
+                    >
+                      <strong>
+                        {formatarMoeda(pontoGraficoAtivo.total)}
+                      </strong>
+
+                      <span>
+                        {pontoGraficoAtivo.mes.toLocaleDateString(
+                          "pt-BR",
+                          {
+                            month: "short",
+                            year: "numeric",
+                          }
+                        )}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
             </article>
