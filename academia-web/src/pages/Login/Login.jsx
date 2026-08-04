@@ -309,18 +309,6 @@ export default function Login() {
 
                 Lembrar de mim
               </label>
-
-              <button
-                type="button"
-                className="login-forgot"
-                onClick={() =>
-                  setErro(
-                    "A recuperação de senha ainda não foi configurada."
-                  )
-                }
-              >
-                Esqueceu a senha?
-              </button>
             </div>
 
             {erro && (

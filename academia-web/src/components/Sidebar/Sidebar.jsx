@@ -12,6 +12,7 @@ import iconMatriculas from "../../assets/icons/matriculas.png";
 import iconPagamentos from "../../assets/icons/pagamentos.png";
 import iconUser from "../../assets/icons/usuario.png";
 import iconNutri from "../../assets/icons/plant.png";
+import iconTreino from "../../assets/icons/peso.png";
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -73,6 +74,11 @@ function Sidebar() {
           <NavLink to="/pagamentos" className="sections desktop-only">
             <img className="icon" src={iconPagamentos} alt="" />
             Pagamentos
+          </NavLink>
+
+          <NavLink to="/treinos" className="sections">
+            <img className="icon" src={iconTreino} alt="" />
+            Treinos
           </NavLink>
 
           <NavLink to="/nutri" className="sections">
