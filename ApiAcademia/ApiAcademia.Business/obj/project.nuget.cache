@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lyB39/CZRzc=",
+  "dgSpecHash": "JaAJ8tmSs8k=",
   "success": true,
-  "projectFilePath": "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\ApiAcademia.Business.csproj",
+  "projectFilePath": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\ApiAcademia.Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\phgchair\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\phgchair\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

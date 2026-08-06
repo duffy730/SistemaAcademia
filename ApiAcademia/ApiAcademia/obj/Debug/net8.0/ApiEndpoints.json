@@ -1,0 +1,755 @@
+[
+  {
+    "ContainingType": "AcademiaAPI.Principal.Controllers.AlunoController",
+    "Method": "Atualizar",
+    "RelativePath": "api/alunos/atualizar-aluno/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Criar.CriarAlunoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AcademiaAPI.Principal.Controllers.AlunoController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/alunos/buscar-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AcademiaAPI.Principal.Controllers.AlunoController",
+    "Method": "Criar",
+    "RelativePath": "api/alunos/criar-aluno",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Criar.CriarAlunoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AcademiaAPI.Principal.Controllers.AlunoController",
+    "Method": "Listar",
+    "RelativePath": "api/alunos/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AcademiaAPI.Principal.Controllers.AlunoController",
+    "Method": "Remover",
+    "RelativePath": "api/alunos/remover-aluno/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.EstatisticaController",
+    "Method": "ObterEstatisticas",
+    "RelativePath": "api/estatistica/listar-dados",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.ExercicioController",
+    "Method": "Atualizar",
+    "RelativePath": "api/exercicios/atualizar-exercicio/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Criar.CriarExercicioDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.ExercicioController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/exercicios/buscar-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.ExercicioController",
+    "Method": "Criar",
+    "RelativePath": "api/exercicios/criar-exercicio",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Criar.CriarExercicioDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.ExercicioController",
+    "Method": "Listar",
+    "RelativePath": "api/exercicios/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.ExercicioController",
+    "Method": "Remover",
+    "RelativePath": "api/exercicios/remover-exercicio/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.MatriculaController",
+    "Method": "Ativar",
+    "RelativePath": "api/matriculas/ativar/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.MatriculaController",
+    "Method": "Atualizar",
+    "RelativePath": "api/matriculas/atualizar-matricula/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Criar.CriarMatriculaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.MatriculaController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/matriculas/buscar-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.MatriculaController",
+    "Method": "Criar",
+    "RelativePath": "api/matriculas/criar-matricula",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Criar.CriarMatriculaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.MatriculaController",
+    "Method": "Desativar",
+    "RelativePath": "api/matriculas/desativar/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.MatriculaController",
+    "Method": "Listar",
+    "RelativePath": "api/matriculas/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.MatriculaController",
+    "Method": "Remover",
+    "RelativePath": "api/matriculas/remover/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.NutricaoController",
+    "Method": "Listar",
+    "RelativePath": "api/nutricao",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.NutricaoController",
+    "Method": "Criar",
+    "RelativePath": "api/nutricao",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Nutricao.SalvarPlanoNutricaoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.NutricaoController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/nutricao/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.NutricaoController",
+    "Method": "Atualizar",
+    "RelativePath": "api/nutricao/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Nutricao.SalvarPlanoNutricaoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.NutricaoController",
+    "Method": "Remover",
+    "RelativePath": "api/nutricao/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.NutricaoController",
+    "Method": "AdicionarMedida",
+    "RelativePath": "api/nutricao/{planoId}/medidas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "planoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Nutricao.CriarMedidaCorporalDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.NutricaoController",
+    "Method": "BuscarPorAluno",
+    "RelativePath": "api/nutricao/aluno/{alunoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "alunoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.PagamentoController",
+    "Method": "Atualizar",
+    "RelativePath": "api/pagamentos/atualizar-pagamento/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Criar.CriarPagamentoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.PagamentoController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/pagamentos/buscar-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.PagamentoController",
+    "Method": "Criar",
+    "RelativePath": "api/pagamentos/criar-pagamento",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Criar.CriarPagamentoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.PagamentoController",
+    "Method": "Listar",
+    "RelativePath": "api/pagamentos/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.PagamentoController",
+    "Method": "Remover",
+    "RelativePath": "api/pagamentos/remover-pagamento/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Principal.Controllers.PlanoController",
+    "Method": "Atualizar",
+    "RelativePath": "api/planos/atualizar-plano/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Criar.CriarPlanoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Principal.Controllers.PlanoController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/planos/buscar-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Principal.Controllers.PlanoController",
+    "Method": "Criar",
+    "RelativePath": "api/planos/criar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Criar.CriarPlanoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Principal.Controllers.PlanoController",
+    "Method": "Remover",
+    "RelativePath": "api/planos/deletar/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Principal.Controllers.PlanoController",
+    "Method": "Listar",
+    "RelativePath": "api/planos/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Principal.Controllers.ProdutosController",
+    "Method": "Atualizar",
+    "RelativePath": "api/produtos/atualizar-produto/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Criar.CriarProdutoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Principal.Controllers.ProdutosController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/produtos/buscar-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Principal.Controllers.ProdutosController",
+    "Method": "Criar",
+    "RelativePath": "api/produtos/criar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Criar.CriarProdutoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Principal.Controllers.ProdutosController",
+    "Method": "Remover",
+    "RelativePath": "api/produtos/deletar/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Principal.Controllers.ProdutosController",
+    "Method": "Listar",
+    "RelativePath": "api/produtos/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.UserController",
+    "Method": "Atualizar",
+    "RelativePath": "api/user/atualizar-user/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Atualizar.AtualizarUserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.UserController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/user/buscar-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.UserController",
+    "Method": "Listar",
+    "RelativePath": "api/user/listar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.UserController",
+    "Method": "Me",
+    "RelativePath": "api/user/me",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.UserController",
+    "Method": "Remover",
+    "RelativePath": "api/user/remover-user/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/usuarios/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Response.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiAcademia.Controllers.AuthController",
+    "Method": "Criar",
+    "RelativePath": "api/usuarios/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ApiAcademia.Business.DTOs.Criar.CriarUserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NutricionistaVirtualController",
+    "Method": "CalcularImc",
+    "RelativePath": "calcular-imc/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

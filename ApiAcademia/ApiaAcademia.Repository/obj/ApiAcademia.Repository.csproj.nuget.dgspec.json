@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\ApiAcademia.Repository.csproj": {}
+    "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\ApiAcademia.Repository.csproj": {}
   },
   "projects": {
-    "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\ApiAcademia.Repository.csproj": {
+    "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\ApiAcademia.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\ApiAcademia.Repository.csproj",
+        "projectUniqueName": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\ApiAcademia.Repository.csproj",
         "projectName": "ApiAcademia.Repository",
-        "projectPath": "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\ApiAcademia.Repository.csproj",
+        "projectPath": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\ApiAcademia.Repository.csproj",
         "packagesPath": "C:\\Users\\phgchair\\.nuget\\packages\\",
-        "outputPath": "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\obj\\",
+        "outputPath": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiaAcademia.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,6 +32,7 @@
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -50,6 +51,7 @@
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Design": {

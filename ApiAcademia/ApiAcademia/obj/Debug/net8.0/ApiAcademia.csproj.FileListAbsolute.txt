@@ -143,3 +143,4 @@ C:\Repository\SistemaAcademia\ApiAcademia\ApiAcademia\obj\Debug\net8.0\refint\Ap
 C:\Repository\SistemaAcademia\ApiAcademia\ApiAcademia\obj\Debug\net8.0\ApiAcademia.pdb
 C:\Repository\SistemaAcademia\ApiAcademia\ApiAcademia\obj\Debug\net8.0\ApiAcademia.genruntimeconfig.cache
 C:\Repository\SistemaAcademia\ApiAcademia\ApiAcademia\obj\Debug\net8.0\ref\ApiAcademia.dll
+C:\Repository\SistemaAcademia\ApiAcademia\ApiAcademia\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

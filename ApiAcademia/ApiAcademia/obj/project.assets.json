@@ -4231,11 +4231,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia\\ApiAcademia.csproj",
+      "projectUniqueName": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia\\ApiAcademia.csproj",
       "projectName": "ApiAcademia",
-      "projectPath": "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia\\ApiAcademia.csproj",
+      "projectPath": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia\\ApiAcademia.csproj",
       "packagesPath": "C:\\Users\\phgchair\\.nuget\\packages\\",
-      "outputPath": "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia\\obj\\",
+      "outputPath": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4256,10 +4256,11 @@
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "projectReferences": {
-            "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\ApiAcademia.Business.csproj": {
-              "projectPath": "c:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\ApiAcademia.Business.csproj"
+            "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\ApiAcademia.Business.csproj": {
+              "projectPath": "C:\\Repository\\SistemaAcademia\\ApiAcademia\\ApiAcademia.Business\\ApiAcademia.Business.csproj"
             }
           }
         }
@@ -4278,6 +4279,7 @@
     },
     "frameworks": {
       "net8.0": {
+        "framework": "net8.0",
         "targetAlias": "net8.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": {

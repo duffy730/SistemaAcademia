@@ -22,6 +22,7 @@ public class AppDbContext : DbContext
     public DbSet<ProdutosEntitie> Produtos { get; set; } = null!;
 
     public DbSet<UserEntitie> Usuarios { get; set; } = null!;
+    public DbSet<ExercicioEntitie> Exercicio { get; set; } = null!;
 
     /*
      * Nutrição

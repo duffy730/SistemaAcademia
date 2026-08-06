@@ -62,6 +62,36 @@ namespace ApiAcademia.Repository.Migrations
                     b.ToTable("Alunos");
                 });
 
+            modelBuilder.Entity("ApiAcademia.Repository.Entities.ExercicioEntitie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Descanso")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MusculoPrin")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Reps")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Series")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Exercicio");
+                });
+
             modelBuilder.Entity("ApiAcademia.Repository.Entities.MatriculaEntitie", b =>
                 {
                     b.Property<int>("Id")

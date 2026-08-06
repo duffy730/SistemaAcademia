@@ -2,7 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\academia-web",
-    "\\academia-web\\src"
+    "\\academia-web\\src",
+    "\\ApiAcademia",
+    "\\ApiAcademia\\ApiaAcademia.Repository",
+    "\\ApiAcademia\\ApiaAcademia.Repository\\Migrations"
   ],
+  "SelectedNode": "\\ApiAcademia\\ApiaAcademia.Repository\\Migrations\\20260731133300_CorrigirTiposTabelaAluno.cs",
   "PreviewInSolutionExplorer": false
 }
