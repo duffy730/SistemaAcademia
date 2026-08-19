@@ -115,11 +115,15 @@ function Sidebar() {
       </aside>
 
       <nav className="mobile-bottom-menu">
-        <div className="mobile-menu-item disabled">
-          <span className="mobile-menu-icon">🏋️</span>
-          <span>Treinos</span>
-          <small>Em breve</small>
-        </div>
+        <NavLink
+          to="/treinos"
+          className={({ isActive }) =>
+            `mobile-menu-item ${isActive ? "active" : ""}`
+          }
+        >
+          <img src={iconTreino} alt="" />
+          <span>Treino</span>
+        </NavLink>
 
         <NavLink
           to="/nutri"

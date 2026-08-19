@@ -11,6 +11,7 @@ import Pagamentos from "../pages/Pagamentos/Pagamentos";
 import Usuarios from "../pages/Usuarios/Usuarios";
 import Nutri from "../pages/Nutricao/Nutricao"
 import Perfil from "../pages/Perfil/Perfil";
+import Treinos from "../pages/Treinos/Treinos";
 
 function PaginaTemporaria({ titulo }) {
   return <h1>{titulo}</h1>;
@@ -34,6 +35,8 @@ function AppRoutes() {
           <Route path="/matriculas" element={<Matriculas />} />
 
           <Route path="/pagamentos" element={<Pagamentos />} />
+
+          <Route path="/treinos" element={<Treinos />} />
 
           <Route path="/nutri" element={<Nutri/>} />
 
